@@ -14,25 +14,21 @@ import { IoMdHelpCircle } from "react-icons/io"
 export default function Header() {
    return (
       <div className={styles.wrapper}>
-         <div className={styles.test}>
-         <div className={styles["channel-container-shadow"]}>
-            <div className={styles["channel-container"]}>
+            <div className={styles["channels-container"]}>
                {/* <BsMegaphoneFill className={`${styles["channel-icon"]} ${styles["center-vertically"]}`} /> */}
                <FaHashtag className={styles["channel-icon"]} />
                <h1>channel-name</h1>
                <button className={styles["follow-button"]}>Follow</button>
             </div>
-         </div>
-         <div className={styles["toolbar-container"]}>          
-            <SiGooglemessages className={styles["channel-icon"]}/>
-            <FaBell className={styles["channel-icon"]}/>
-            <BsPinAngleFill className={styles["channel-icon"]}/>
-            <ImUsers className={styles["channel-icon"]}/>
-            <input></input>
-            <MdInbox className={styles["channel-icon"]}/>
-            <IoMdHelpCircle className={styles["channel-icon"]}/>           
-         </div>
-         </div>
+            <div className={styles["toolbar-container"]}>         
+               <SiGooglemessages className={styles["toolbar-element"]}/>
+               <FaBell className={styles["toolbar-element"]}/>
+               <BsPinAngleFill className={styles["toolbar-element"]}/>
+               <ImUsers className={styles["toolbar-element"]}/>
+               <input className={`${styles["toolbar-searchbar"]}`}></input>
+               <MdInbox className={styles["toolbar-element"]}/>
+               <IoMdHelpCircle className={styles["toolbar-element"]}/>           
+            </div>
       </div>
    )
 }

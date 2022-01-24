@@ -1,9 +1,18 @@
-html,
-body {
+:root {
+   --server-icon-margin-bottom: 8px;
+   --main-text-colour: white;
+}
+
+html, body {
   padding: 0;
   margin: 0;
+
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, p, hr {
+   margin: 0;
 }
 
 a {
@@ -13,4 +22,8 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+   width: 0;  /* Remove scrollbar space */
 }

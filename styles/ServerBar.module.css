@@ -27,10 +27,12 @@ hr.divider {
    border-radius: 100%;
    background-color: #36393F;
    border: none;
+   transition: border-radius 150ms ease-out, background-color 80ms ease-out;
 }
 
 .icon:hover {
-   border-radius: 40%;
+   border-radius: 35%;
+   background-color: #5865F2;
 }
 
 .center {

@@ -1,0 +1,31 @@
+.channel-icon {
+   min-height: 2rem;
+   min-width: 2rem;
+}
+
+.channel {
+   height: 3rem;
+   width: 95%;
+   text-transform: none;
+   position: relative;
+   right: -0.2rem;
+   font-size: 1.5rem;
+   font-weight: 600;
+   color: #89928B;
+   display: flex;
+   align-items: center;
+   text-align: center;
+   gap: .8rem;
+   padding-left: 1rem;
+   margin: 0 auto;
+   margin-top: .6rem;
+   border-radius: .2rem;
+}
+
+.channel:hover {
+   background-color: #35373D;
+}
+
+.channel:hover > p {
+   color: #DCDDDE;
+}

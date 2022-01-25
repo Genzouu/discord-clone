@@ -15,9 +15,9 @@ const Home: NextPage = () => {
       <SideBar />     
       <div className={styles["content-container"]}>
          <Header />
-         <div className={styles.posts}>
-         <Posts />
-         <Members />
+         <div className={styles.feed}>
+            <Posts />
+            <Members />
          </div>
       </div>
     </div>

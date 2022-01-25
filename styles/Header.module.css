@@ -1,10 +1,9 @@
 .header {
    width: 100%;
-   height: 4.8rem;
+   height: var(--header-height);
    display: flex;
    justify-content: space-between;
    color: white;
-   font-size: 2rem;
    overflow: hidden;
    /* background-color: var(--toolbar-background-colour); */
    background-color: transparent;
@@ -16,7 +15,6 @@
 
 .channels-container {
    display: flex;
-   width: fit-content;
    white-space: nowrap;
    overflow: hidden;
    position: relative;
@@ -24,6 +22,7 @@
    gap: .8rem;
    align-items: center;
    padding-left: 1.5rem;   
+   font-size: .8rem;
 }
 
 .channels-container::after {
@@ -74,7 +73,7 @@
    min-height: 2.4rem;
    align-items: center;
    display: flex;
-   transition: width 200ms;
+   transition: min-width 250ms;
 }
 
 .toolbar-searchbar {
@@ -87,11 +86,11 @@
    color: rgb(200, 200, 200);
    cursor: text;
    text-indent: 0.5rem;
-   transition: width 200ms;
+   transition: 200ms;
 }
 
 .toolbar-searchbar-container:focus-within {
-   width: 24rem;
+   min-width: 24rem;
 }
 
 .searchbar-search-icon {

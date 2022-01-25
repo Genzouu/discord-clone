@@ -1,0 +1,37 @@
+.channel-section  {
+   font-size: 1.2rem;
+   font-weight: 600;
+   color: #89928B;
+   text-transform: uppercase;
+   padding-left: .2rem;
+}
+
+.channel-section:nth-child(n+1):nth-last-child(n+2) {
+   margin-bottom: 1.8rem;
+}
+
+.channel-section-summary {
+   list-style: none;
+   display: flex;
+   align-items: center;
+   gap: .2rem;
+}
+
+.channel-section-summary > p {
+   width: 100%;
+}
+
+.expand-section-icon {
+   min-height: 1.2rem;
+   min-width: 1.2rem;
+}
+
+.add-channel-icon {
+   min-height: 2.2rem;
+   min-width: 2.2rem;
+   margin-right: 1.4rem;
+}
+
+.channel-section:hover {
+   color: #DCDDDE;
+}

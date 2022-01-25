@@ -1,7 +1,8 @@
 :root {
    --server-icon-margin-bottom: 8px;
-   --main-text-colour: white;
-   --toolbar-background-colour: #36393F;
+   --main-text-colour: white; 
+   --main-background-colour: #36393F;
+   --secondary-background-colour: #2F3136;
 }
 
 html, body {
@@ -26,5 +27,5 @@ a {
 }
 
 ::-webkit-scrollbar {
-   width: 0;  /* Remove scrollbar space */
+   width: 0;
 }

@@ -9,7 +9,7 @@ export default function ServerBar() {
    const [servers, setServers] = useState(serversInitState);
 
    return (
-      <div className={styles.wrapper}>
+      <div className={styles["server-bar"]}>
             <button className={`${styles.icon} ${styles.center}`}></button>
             <hr className={`${styles.divider} ${styles.center}`} />
             {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((server, index) => (

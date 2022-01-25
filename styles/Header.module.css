@@ -1,79 +1,105 @@
-.wrapper {
-   min-height: 4.8rem;
-   background-color: var(--toolbar-background-colour);
+.header {
+   width: 100%;
+   height: 4.8rem;
+   display: flex;
+   justify-content: space-between;
+   color: white;
+   font-size: 2rem;
+   overflow: hidden;
+   /* background-color: var(--toolbar-background-colour); */
+   background-color: transparent;
    border-bottom: .2rem solid rgba(0, 0, 0, 0.15);
    color: var(--main-text-colour);
    font-size: .8rem;
-   padding-right: 1.5rem;
    z-index: 0;
-   position: relative;
-   display: flex;
-   justify-content: space-between;
-   width: 100%;
-   height: 2.5rem;
 }
 
-/* background-image: linear-gradient(90deg, transparent 90%, var(--toolbar-background-colour)); */
 .channels-container {
-   display: inline-flex;
-   gap: .8rem;
-   align-items: center;
-   z-index: -1 !important;
+   display: flex;
+   width: fit-content;
    white-space: nowrap;
    overflow: hidden;
-   position: absolute;
-   top: 1rem;
-   padding-left: 2rem;
-}
-
-.toolbar-container {
+   position: relative;
+   width: 100%;
+   gap: .8rem;
    align-items: center;
-   display: inline-flex;
-   justify-self: right;
-   margin-left: auto;
-   background: linear-gradient(to left, var(--toolbar-background-colour) calc(100% - 20px), transparent calc(100% - 20px));
+   padding-left: 1.5rem;   
 }
 
-.toolbar-container::before {
+.channels-container::after {
    content: "";
    width: 2rem;
-   height: 100%;
-   background: linear-gradient(90deg, transparent 25%, var(--toolbar-background-colour));
+   height: 4.8rem;
+   background: linear-gradient(90deg, transparent 25%, var(--main-background-colour));
+   position: absolute;
+   top: 0;
+   right: 0;
    z-index: 10;
+   float: left;
 }
 
 .channel-icon {
-   min-width: 2rem;
-   min-height: 2rem;
+   min-width: 2.8rem;
+   min-height: 2.8rem;
    margin-right: 4px;
    color: #72767D;
+}
+
+.description {
+   overflow: hidden;
+   text-overflow: ellipsis;
+}
+
+.toolbar-container {
+   display: flex;
+   white-space: nowrap;
+   min-width: fit-content;
+   align-items: center;
 }
 
 .toolbar-element {
    min-width: 2.25rem;
    min-height: 2.25rem;
-   margin-left: 1.5rem;
+   margin-right: 1.75rem;
    color: #B9BBBE;
+   cursor: pointer;
 }
 
 .toolbar-element:hover {
    color: #DCDDDE;
-   cursor: pointer;
+}
+
+.toolbar-searchbar-container {
+   min-width: 16rem;
+   min-height: 2.4rem;
+   align-items: center;
+   display: flex;
+   transition: width 200ms;
 }
 
 .toolbar-searchbar {
-   min-width: 2.4rem;
    min-height: 2.4rem;
-   margin-left: 1.5rem;
+   width: 100%;
    background-color: #202225;
    border: none;
    border-radius: 0.4rem;
    outline: none;
    color: rgb(200, 200, 200);
+   cursor: text;
+   text-indent: 0.5rem;
+   transition: width 200ms;
 }
 
-.toolbar-searchbar {
-   cursor: text;
+.toolbar-searchbar-container:focus-within {
+   width: 24rem;
+}
+
+.searchbar-search-icon {
+   min-width: 1.7rem;
+   min-height: 1.7rem;
+   color: #72767D;
+   position: relative;
+   left: -2.5rem;
 }
 
 .follow-button {
@@ -97,7 +123,14 @@
    cursor: pointer;
 }
 
-.center-vertically {
-   margin-top: auto;
-   margin-bottom: auto;
+.vl {
+   margin: 0 1rem;
+   height: 2rem;
+   border-left: 1px solid #42454B;
+}
+
+.description {
+   color: #B9BBBE;
+   font-size: 1.4rem;
+   font-weight: 600;
 }

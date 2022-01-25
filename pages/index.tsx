@@ -12,10 +12,14 @@ const Home: NextPage = () => {
   return (
     <div className={styles.wrapper}>
       <ServerBar />
-      <SideBar />
-      <Header />
-      <Posts />
-      <Members />
+      <SideBar />     
+      <div className={styles["content-container"]}>
+         <Header />
+         <div className={styles.posts}>
+         <Posts />
+         <Members />
+         </div>
+      </div>
     </div>
   )
 }

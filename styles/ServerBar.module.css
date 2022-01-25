@@ -1,9 +1,8 @@
-.wrapper {
+.server-bar {
    background-color: #202225;
-   min-width: 72px;
+   min-width: 7.2rem;
    height: 100vh;
-   padding-top: 11.5px;
-   padding-bottom: 1px;
+   padding-top: 1.15rem;
    overflow-y: scroll;
    overflow-x: hidden;
    scrollbar-width: none; /* Firefox */
@@ -26,7 +25,7 @@ hr.divider {
    border-radius: 100%;
    background-color: #36393F;
    border: none;
-   transition: border-radius 150ms ease-out, background-color 80ms ease-out;
+   transition: border-radius 150ms ease-out, background-color 150ms ease-out;
 }
 
 .icon:hover {

@@ -4,6 +4,7 @@
    color: #89928B;
    text-transform: uppercase;
    padding-left: .2rem;
+   cursor: pointer;
 }
 
 .channel-section:nth-child(n+1):nth-last-child(n+2) {

@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 import styles from '../styles/ServerBar.module.css'
 import Data from '../types/Data'
+import ServerIcon from './ServerIcon';
 
 export default function ServerBar() {
 
@@ -10,18 +11,16 @@ export default function ServerBar() {
 
    return (
       <div className={styles["server-bar"]}>
-            <button className={`${styles.icon} ${styles.center}`}></button>
+            <ServerIcon icon={""} showPill={false} />
             <hr className={`${styles.divider} ${styles.center}`} />
-            {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((server, index) => (
-               <button className={`${styles.icon} ${styles.center}`} key={index}></button>
-               // <input className={styles.server} type="image" src="http://icon-library.com/images/discord-transparent-server-icon/discord-transparent-server-icon-17.jpg">
-                  
-               // </input>
+            {[...new Array(16)].map((server, index) => (
+               <ServerIcon icon={""} showPill={true} key={index}  />
+               // <input className={styles.server} type="image" src="http://icon-library.com/images/discord-transparent-server-icon/discord-transparent-server-icon-17.jpg"></input>//         
             ))}
-            <button className={`${styles.icon} ${styles.center}`}></button>
-            <button className={`${styles.icon} ${styles.center}`}></button>
+            <ServerIcon showPill={false} icon={""} />
+            <ServerIcon showPill={false} icon={""} />
             <hr className={`${styles.divider} ${styles.center}`} />
-            <button className={`${styles.icon} ${styles.center}`}></button>
+            <ServerIcon showPill={false} icon={""} />
       </div>
    )
 }

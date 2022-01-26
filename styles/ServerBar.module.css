@@ -2,7 +2,7 @@
    background-color: #202225;
    min-width: 7.2rem;
    height: 100vh;
-   padding-top: 1.15rem;
+   padding-top: 1.2rem;
    overflow-y: scroll;
    overflow-x: hidden;
    scrollbar-width: none; /* Firefox */
@@ -12,29 +12,8 @@
 hr.divider {
    background-color: #2D2F32;
    border: none;
-   height: 2px;
-   width: 32.5px;
-   margin-bottom: var(--server-icon-margin-bottom);
-}
-
-.icon {
-   display: flex;
-   width: 48px;
-   height: 48px;
-   margin-bottom: var(--server-icon-margin-bottom);
-   border-radius: 100%;
-   background-color: #36393F;
-   border: none;
-   transition: border-radius 150ms ease-out, background-color 150ms ease-out;
-}
-
-.icon:hover {
-   border-radius: 1.75rem;
-   background-color: var(--discord-colour);
-   
-}
-
-.center {
-   margin-left: auto;
-   margin-right: auto;
+   min-height: .2rem;
+   width: 3.2rem;
+   margin: .8rem auto;
+   border-radius: 1rem;
 }

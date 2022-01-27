@@ -104,12 +104,16 @@
 .channel-sections-container {
    height: 100%;
    width: 100%;
-   overflow: scroll;
-   scrollbar-width: auto;
+   scrollbar-width: thin;
    display: flex;
    flex-direction: column;
    padding: 1.4rem 0;
    scrollbar-width: thin;
-   scrollbar-color: #202225 transparent;
+   scrollbar-color: transparent transparent;
+   overflow: scroll;
    overflow-x: hidden;
+}
+
+.channel-sections-container:hover {
+   scrollbar-color: #202225 transparent;
 }

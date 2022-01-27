@@ -1,0 +1,27 @@
+.members {
+   height: calc(100% - var(--header-height));
+   min-width: 24rem;
+   max-width: 24rem;
+   background-color: var(--secondary-background-colour);
+   display: flex;
+   flex-direction: column;
+   justify-self: right;
+   padding: 0 .8rem;
+   padding-top: 2rem;
+   padding-bottom: 2rem;
+   overflow-y: scroll;
+   scrollbar-width: thin;
+   scrollbar-color: transparent transparent;
+}
+
+.members:hover {
+   scrollbar-color: #202225 transparent;
+}
+
+.member-group {
+   color: #8E908C;
+   font-size: 1.2rem;
+   text-transform: uppercase;
+   font-weight: 600;
+   margin-left: .8rem;
+}

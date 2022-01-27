@@ -19,11 +19,22 @@ export interface Post {
 
 export interface PrivateUser {
    data: PublicUser
-   friendIDs: string[]
+   friendIDs: number[]
    directMessages: Post[][]
 }
 
 export interface PublicUser {
-   id: string,
+   username: string,
+   discriminator: number,
+   id: number,
    profilePic: string,
+   status: Status, 
+}
+
+export enum Status {
+   Online = "Online",
+   Away = "Away",
+   DoNotDisturb = "Do Not Disturb",
+   Hidden = "Hidden",
+   Offline = "Offline",
 }

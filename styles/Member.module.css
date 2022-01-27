@@ -1,0 +1,26 @@
+.member {
+   min-height: 4.4rem;
+   color: #8E908C;
+   font-size: 1.5rem;
+   border-radius: .4rem;
+   display: flex;
+   align-items: center;
+   overflow: hidden;
+   padding: .4rem .8rem;
+   gap: 1rem;
+}
+
+.member:hover {
+   color: #DCDDDE;
+   background-color: #35373D;
+}
+
+.username {
+   overflow: hidden;
+   text-overflow: ellipsis;
+}
+
+img.profile-picture  {
+   width: 3.2rem;
+   height: auto;
+}

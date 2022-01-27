@@ -2,6 +2,7 @@
    height: 4.8rem;
    width: 100%;
    margin-bottom: .8rem;
+   position: relative;
 }
 
 .icon {
@@ -22,11 +23,15 @@
    background-color: var(--discord-colour);
 }
 
+.icon:hover + .pill-container .pill {
+   height: 1.6rem;
+}
+
 .pill-container {
-   position: relative;
+   position: absolute;
+   top: 0;
+   left: -0.4rem;
    height: 100%;
-   left: -.4rem;
-   top: -4.8rem;
    width: .8rem;
    display: flex;
    align-items: center;

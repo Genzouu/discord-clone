@@ -4,7 +4,7 @@ import Head from 'next/head'
 import ServerBar from '../components/ServerBar'
 import SideBar from '../components/Sidebar'
 import Header from '../components/Header'
-import Members from '../components/Members'
+import MembersBar from '../components/MembersBar'
 import Posts from '../components/Posts'
 import styles from '../styles/Home.module.css'
 
@@ -17,7 +17,7 @@ const Home: NextPage = () => {
          <Header />
          <div className={styles.feed}>
             <Posts />
-            <Members />
+            <MembersBar />
          </div>
       </div>
     </div>

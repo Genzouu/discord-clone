@@ -5,7 +5,7 @@ import ServerBar from '../components/ServerBar'
 import SideBar from '../components/Sidebar'
 import Header from '../components/Header'
 import MembersBar from '../components/MembersBar'
-import Posts from '../components/Posts'
+import Posts from '../components/Chat'
 import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {

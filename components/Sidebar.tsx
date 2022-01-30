@@ -41,6 +41,9 @@ export default function Sidebar() {
             <MdKeyboardArrowDown className={styles["settings-dropdown-icon"]} />
          </div>
          {showNotice ? 
+            // <img src="/assets/5e690f4c63a19a36bff7f6364eaa6ea2.svg"></img>
+            // There's a server list! Gather some friends and boost the server. 
+            // Check the level and benefits.
             <div className={styles["notice-container"]}>
                <BsX className={styles["close-notice-icon"]} onClick={() => setShowNotice(false)}/>
                <div className={styles["invite-friends-notice"]}>              

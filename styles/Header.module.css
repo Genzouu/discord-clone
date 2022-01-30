@@ -58,12 +58,12 @@
    min-width: 2.25rem;
    min-height: 2.25rem;
    margin-right: 1.75rem;
-   color: #B9BBBE;
+   color: var(--main-element-colour);
    cursor: pointer;
 }
 
 .toolbar-element:hover {
-   color: #DCDDDE;
+   color: var(--main-element-hover-colour);
 }
 
 .toolbar-searchbar-container {
@@ -127,7 +127,7 @@
 }
 
 .description {
-   color: #B9BBBE;
+   color: var(--main-element-colour);
    font-size: 1.4rem;
    font-weight: 600;
 }

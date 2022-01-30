@@ -1,0 +1,9 @@
+.post {
+   font-size: 2rem;
+   text-align: left;
+   color: var(--main-element-hover-colour);
+}
+
+.post:hover {
+   background-color: #32353B;
+}

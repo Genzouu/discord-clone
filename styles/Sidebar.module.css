@@ -46,7 +46,7 @@
 .close-notice-icon {
    min-height: 2.4rem;
    min-width: 2.4rem;
-   color: #B9BBBE;
+   color: var(--main-element-colour);
    position: absolute;
    top: .8rem;
    right: 1rem;
@@ -54,7 +54,7 @@
 }
 
 .close-notice-icon:hover {
-   color: #DCDDDE;
+   color: var(--main-element-hover-colour);
 }
 
 .invite-friends-notice {
@@ -76,7 +76,7 @@
 }
 
 .invite-friends-notice-text {
-   color: #DCDDDE;
+   color: var(--main-element-hover-colour);
    font-size: 1.6rem;
    text-align: center;
    margin-bottom: 1.4rem;

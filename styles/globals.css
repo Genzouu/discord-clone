@@ -4,6 +4,8 @@
    --secondary-background-colour: #2F3136;
    --header-height: 5rem;
    --discord-colour: #5865F2;
+   --main-element-colour: #B9BBBE;
+   --main-element-hover-colour: #DCDDDE;
 }
 
 html, body {

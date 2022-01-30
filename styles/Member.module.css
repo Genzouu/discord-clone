@@ -11,7 +11,7 @@
 }
 
 .member:hover {
-   color: #DCDDDE;
+   color: var(--main-element-hover-colour);
    background-color: #35373D;
 }
 

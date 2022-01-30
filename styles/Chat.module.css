@@ -1,0 +1,97 @@
+.chat {
+   height: 100%;
+   width: 100%;
+   background-color: var(--main-background-colour);
+   scrollbar-color: #2B2C2F var(--secondary-background-colour);
+   position: relative;
+}
+
+.posts {
+   height: 88.125%;
+   width: 100%;
+   overflow: scroll;
+   overflow-x: hidden;
+   padding-left: 1.6rem;
+   padding-right: 1.6rem;
+   padding-top: 1rem;
+   padding-bottom: 3rem;
+}
+
+.text-input-area {
+   width: 100%;
+   min-height: 10rem;
+   background-color: var(--main-background-colour); 
+   padding: 0 1.6rem;
+   position: absolute;
+   bottom: 0;
+}
+
+.text-input-area::before {
+   content: "";
+   position: absolute;
+   top: -1.78rem;
+   left: 0;
+   height: 1rem;
+   width: 4rem;
+   background: linear-gradient(to bottom, transparent, var(--main-background-colour) 60%);
+}
+
+.text-input-container {
+   min-height: 4.4rem;
+   width: 100%;
+   display: flex;
+   position: relative;
+   top: -1.8rem;
+}
+
+.left-icon-container {
+   background-color: #40444B;
+   border-top-left-radius: .8rem;
+   border-bottom-left-radius: .8rem;
+   display: flex;
+   align-items: center;
+   padding: 0 1.6rem;
+   cursor: pointer;
+}
+
+.left-icon-container:hover > .utility-icon {
+   color: var(--main-element-hover-colour);
+}
+
+.utility-icon {
+   width: 2.5rem;
+   height: auto;
+   color: var(--main-element-colour);
+}
+
+.text-input {
+   min-height: 100%;
+   width: 100%;
+   background-color: #40444B;
+   color: var(--main-element-hover-colour);
+   font-size: 1.4rem;
+   padding-right: 4rem;
+   border: none;
+   outline: none;
+}
+
+.right-icon-container {  
+   background-color: #40444B;
+   display: flex;
+   align-items: center;
+   gap: 1.2rem;
+   padding-right: 1.2rem;
+   border-top-right-radius: .8rem;
+   border-bottom-right-radius: .8rem;
+}
+
+.right-icon {
+   width: 2.2rem;
+   height: auto;
+   color: var(--main-element-colour);
+   cursor: pointer;
+}
+
+.right-icon:hover {
+   color: var(--main-element-hover-colour);
+}

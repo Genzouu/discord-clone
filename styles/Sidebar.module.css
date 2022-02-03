@@ -96,12 +96,12 @@
 }
 
 .invite-friends-notice-button:hover {
-   background-color: #4752C4;
+   background-color: var(--dark-discord-colour);
 }
 
 /* Sections and Channels */
 
-.channel-sections-container {
+.channels-container {
    height: 100%;
    width: 100%;
    scrollbar-width: thin;
@@ -114,6 +114,40 @@
    overflow-x: hidden;
 }
 
-.channel-sections-container:hover {
+.channels-container:hover {
    scrollbar-color: #202225 transparent;
+}
+
+.context-menu {
+   position: absolute;
+   background-color: #18191C;
+   padding: 1.6rem;
+   border-radius: .4rem;
+   display: none;
+   flex-direction: column;
+   z-index: 10;
+}
+
+.context-menu-element {
+   color: var(--main-element-colour);
+   font-size: 1.6rem;
+   text-align: left;
+   border-radius: .4rem;
+   background-color: #18191C;
+   border: none;
+   padding: .6rem;
+}
+
+.context-menu-element:hover {
+   color: white;
+   background-color: var(--dark-discord-colour);
+}
+
+.context-menu-element:active {
+   background-color: #3C45A5;
+}
+
+.context-menu-line {
+   margin: .2rem 0;
+   color: #26272A;
 }

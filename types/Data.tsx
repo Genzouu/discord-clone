@@ -1,20 +1,26 @@
 export default interface Data {
    user: PrivateUser,
    servers: {
-      channelGroups: {
-         channels: { 
-            posts: Post[],
-            members: PublicUser[],
-         }[],
-      },
+      name: string,
+      categories: Category[],
+      members: PublicUser[],
    }[],
+}
+
+export interface Category {
+   name: string,
+   channels: Channel[],
+}
+
+export interface Channel {
+   name: string,
+   posts: Post[],
 }
 
 export interface Post {
    message: string,
    image: string,
    date: string,
-   id: string,
 }
 
 export interface PrivateUser {

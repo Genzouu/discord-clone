@@ -1,4 +1,4 @@
-.channel-section  {
+.category  {
    font-size: 1.2rem;
    font-weight: 600;
    color: #89928B;
@@ -7,18 +7,22 @@
    cursor: pointer;
 }
 
-.channel-section:nth-child(n+1):nth-last-child(n+2) {
+.category:hover {
+   color: var(--main-element-hover-colour);
+}
+
+.category:nth-child(n+1):nth-last-child(n+2) {
    margin-bottom: 1.8rem;
 }
 
-.channel-section-summary {
+.category-summary {
    list-style: none;
    display: flex;
    align-items: center;
    gap: .2rem;
 }
 
-.channel-section-summary > p {
+.category-summary > p {
    width: 100%;
 }
 
@@ -31,8 +35,4 @@
    min-height: 2.2rem;
    min-width: 2.2rem;
    margin-right: 1.4rem;
-}
-
-.channel-section:hover {
-   color: var(--main-element-hover-colour);
 }

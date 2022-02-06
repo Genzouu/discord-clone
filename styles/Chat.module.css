@@ -64,6 +64,10 @@
    color: var(--main-element-colour);
 }
 
+.text-input-form {
+   width: 100%;
+}
+
 .text-input {
    min-height: 100%;
    width: 100%;

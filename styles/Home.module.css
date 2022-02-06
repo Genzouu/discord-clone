@@ -2,7 +2,7 @@
    background-color: #36393F;
    overflow: hidden;
    display: flex;
-   width: 100%;
+   width: 100vw;
    height: 100vh;
 }
 

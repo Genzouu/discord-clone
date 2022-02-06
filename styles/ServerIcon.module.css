@@ -44,3 +44,11 @@
    background-color: white;
    transition: 150ms ease;
 }
+
+.selected > .icon, .active > .icon:hover {
+   border-radius: 1.75rem;
+}
+
+.selected > .icon + .pill-container .pill {
+   height: 4rem;
+}

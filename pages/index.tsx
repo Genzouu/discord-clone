@@ -5,7 +5,7 @@ import ServerBar from '../components/ServerBar'
 import SideBar from '../components/Sidebar'
 import Header from '../components/Header'
 import MembersBar from '../components/MembersBar'
-import Posts from '../components/Chat'
+import Chat from '../components/Chat'
 import styles from '../styles/Home.module.css'
 import { Provider } from 'react-redux'
 import { store } from '../state/store'
@@ -19,7 +19,7 @@ const Home: NextPage = () => {
          <div className={styles["content-container"]}>
             <Header />
             <div className={styles.feed}>
-               <Posts />
+               <Chat />
                <MembersBar />
             </div>
          </div>

@@ -39,7 +39,7 @@ export default function Chat() {
       <div className={styles.chat}>
          <div className={styles.posts}>
             {posts?.map((post, index) => (
-               <PostComponent userID={0} message={post.message} time={post.date}/>
+               <PostComponent userID={0} message={post.message} time={post.date} key={index}/>
             ))}
          </div>
          <div className={styles["text-input-area"]}>
@@ -47,7 +47,7 @@ export default function Chat() {
                <div className={styles["left-icon-container"]}>
                   <HiPlusCircle className={styles["utility-icon"]} />
                </div>
-               <form onSubmit={(e) => addPostFunc(e)}>
+               <form className={styles["text-input-form"]} onSubmit={(e) => addPostFunc(e)}>
                   <input id="text-input" className={styles["text-input"]}></input>
                </form>
                <div className={styles["right-icon-container"]}>

@@ -27,7 +27,6 @@ export default function Sidebar() {
             let contextMenu = (document.getElementById("context-menu") as HTMLDivElement);
             if (e.composedPath()[0] !== contextMenu && (e.composedPath()[0] as HTMLButtonElement).parentElement !== contextMenu) {
                contextMenu.style.display = "none";
-               console.log("asdd");
             }
          });
          document.addEventListener("keyup", (e) => {

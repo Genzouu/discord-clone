@@ -1,54 +1,55 @@
 .server-icon {
-   height: 4.8rem;
-   width: 100%;
-   margin-bottom: .8rem;
-   position: relative;
+  height: 4.8rem;
+  width: 100%;
+  margin-bottom: 0.8rem;
+  position: relative;
 }
 
 .icon {
-   display: flex;
-   width: 4.8rem;
-   height: 4.8rem;
-   margin-left: auto;
-   margin-right: auto;
-   border-radius: 100%;
-   background-color: #36393F;
-   border: none;
-   cursor: pointer;
-   transition: border-radius 150ms ease, background-color 150ms ease;
+  display: flex;
+  width: 4.8rem;
+  height: 4.8rem;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 100%;
+  background-color: #36393f;
+  border: none;
+  cursor: pointer;
+  transition: border-radius 150ms ease, background-color 150ms ease;
 }
 
 .icon:hover {
-   border-radius: 1.75rem;
-   background-color: var(--discord-colour);
+  border-radius: 1.6rem;
+  background-color: var(--discord-colour);
 }
 
 .icon:hover + .pill-container .pill {
-   height: 1.6rem;
+  height: 1.6rem;
 }
 
 .pill-container {
-   position: absolute;
-   top: 0;
-   left: -0.4rem;
-   height: 100%;
-   width: .8rem;
-   display: flex;
-   align-items: center;
+  position: absolute;
+  top: 0;
+  left: -0.4rem;
+  height: 100%;
+  width: 0.8rem;
+  display: flex;
+  align-items: center;
 }
 
 .pill {
-   width: 100%;
-   height: .8rem;
-   border-radius: 1rem;
-   background-color: white;
-   transition: 150ms ease;
+  width: 100%;
+  height: 0.8rem;
+  border-radius: 1rem;
+  background-color: white;
+  transition: 150ms ease;
 }
 
-.selected > .icon, .active > .icon:hover {
-   border-radius: 1.75rem;
+.selected > .icon,
+.active > .icon:hover {
+  border-radius: 1.6rem;
 }
 
 .selected > .icon + .pill-container .pill {
-   height: 4rem;
+  height: 4rem;
 }

@@ -10,6 +10,8 @@ import Category from "./Category"
 import { useDispatch, useSelector } from "react-redux"
 import { StoreState } from "../state/reducers"
 import { addCategory, addChannel } from "../state/slices/serversSlice"
+import ContextMenu, { ContextMenuType } from "./ContextMenu"
+import { ContextMenuColours } from "../types/ContextMenuColours"
 
 export default function Sidebar() {
 
@@ -18,6 +20,26 @@ export default function Sidebar() {
    const categories = useSelector((state: StoreState) => state.servers[selection.server].categories);
 
    const [showNotice, setShowNotice] = useState(true);
+
+   const sidebarContextMenu: ContextMenuType[] = [
+      {
+         displayText: "Hide channels with notifications turned off",
+         hasLineAfter: true,
+      },
+      {
+         displayText: "Create a category",
+         onClick: () => dispatch(addCategory({ serverIndex: selection.server, name: "new category"})),
+      },
+      {
+         displayText: "Create a channel",
+         onClick: () => dispatch(addChannel({ serverIndex: selection.server, categoryIndex: selection.category, name: "new channel" })),
+      },
+      {
+         displayText: "Invite friends",
+         textColourVariant: ContextMenuColours.Invite,
+         onClick: () => hideContextMenu(),
+      },
+   ]
 
    useEffect(() => {
       if (process.browser) {
@@ -42,7 +64,8 @@ export default function Sidebar() {
       e.preventDefault();
       let contextMenu = (document.getElementById("context-menu") as HTMLDivElement);
       contextMenu.style.display = "flex";
-      contextMenu.style.top = (e.pageY - contextMenu.offsetHeight/2).toString() + "px";
+      // contextMenu.style.top = (e.pageY - contextMenu.offsetHeight/2).toString() + "px";
+      contextMenu.style.top = e.pageY.toString() + "px";
       contextMenu.style.left = e.pageX.toString() + "px";
    }
 
@@ -77,19 +100,7 @@ export default function Sidebar() {
             {categories.map((section, index) => (
                <Category name={section.name} channels={section.channels} index={index} key={index}/>
             ))}
-            <div id="context-menu" className={styles["context-menu"]}>
-               <button className={styles["context-menu-element"]}>Hide channels with notifications turned off</button>
-               <hr className={styles["context-menu-line"]}></hr>
-               <button className={styles["context-menu-element"]} onClick={() => { dispatch(addCategory({ serverIndex: selection.server, name: "new category" })); hideContextMenu(); }}>
-                  Create a category
-               </button>
-               <button className={styles["context-menu-element"]} onClick={() => { dispatch(addChannel({ serverIndex: selection.server, categoryIndex: selection.category, name: "new channel" })); hideContextMenu(); }}>
-                  Create a channel
-               </button>
-               <button className={styles["context-menu-element"]} onClick={() => hideContextMenu()}>
-                  Invite friends
-               </button>
-            </div> 
+            <ContextMenu data={sidebarContextMenu} />          
          </div>
       </div>
    )

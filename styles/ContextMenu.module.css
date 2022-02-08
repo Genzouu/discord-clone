@@ -1,0 +1,62 @@
+.context-menu {
+  position: absolute;
+  background-color: #18191c;
+  padding: 1.6rem;
+  border-radius: 0.4rem;
+  display: none;
+  flex-direction: column;
+  z-index: 10;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+}
+
+/* Context Menu Item */
+
+.item-container {
+  width: 100%;
+}
+
+.item {
+  width: 100%;
+  color: var(--main-element-colour);
+  font-size: 1.6rem;
+  text-align: left;
+  border-radius: 0.4rem;
+  background-color: #18191c;
+  border: none;
+  padding: 0.6rem;
+}
+
+.item:hover {
+  color: white;
+}
+
+.item:active {
+  background-color: #3c45a5;
+}
+
+/* Text Colours */
+
+.normal-text {
+  color: var(--main-element-colour);
+}
+.invite-text {
+  color: #949cf7;
+}
+.delete-text {
+  color: #ed4245;
+}
+
+.normal-text:hover,
+.invite-text:hover {
+  background-color: var(--dark-discord-colour);
+}
+.delete-text:hover {
+  background-color: #ed4245;
+}
+
+/* Horizontal Line */
+
+.line {
+  margin: 0.4rem 0;
+  color: #26272a;
+}

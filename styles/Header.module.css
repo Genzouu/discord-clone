@@ -7,7 +7,7 @@
    overflow: hidden;
    /* background-color: var(--toolbar-background-colour); */
    background-color: transparent;
-   border-bottom: .2rem solid rgba(0, 0, 0, 0.15);
+   border-bottom: .2rem solid #2D2F34;
    color: var(--main-text-colour);
    font-size: .8rem;
    z-index: 0;

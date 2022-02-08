@@ -14,6 +14,7 @@ export interface Category {
 
 export interface Channel {
    name: string,
+   description: string,
    posts: Post[],
 }
 

@@ -8,21 +8,27 @@ import { ImUsers } from "react-icons/im"
 import { MdInbox } from "react-icons/md"
 import { IoMdHelpCircle } from "react-icons/io"
 import { BiSearch } from "react-icons/bi"
+import { useSelector } from 'react-redux'
+import { StoreState } from '../state/reducers'
 // ImUsers
 // IoHelpCircle
 // BsBellSlashFill
 // FaBellSlash
 
 export default function Header() {
+
+   const selection = useSelector((state: StoreState) => state.selection);
+   const servers = useSelector((state: StoreState) => state.servers);
+
    return (
       <div className={styles.header}>
             <div className={styles["channels-container"]}>
                {/* <BsMegaphoneFill className={styles["channel-icon"]} /> */}
                <BiHash className={styles["channel-icon"]} />
-               <h1>channel-name</h1>
+               <h1>{servers[selection.server].categories[selection.category]?.channels[selection.channel]?.name}</h1>
                <button className={styles["follow-button"]}>Follow</button>
                <div className={styles.vl}></div>
-               <p className={styles.description}>This is the channel description</p>
+               <p className={styles.description}>{servers[selection.server].categories[selection.category]?.channels[selection.channel]?.description}</p>
             </div>
             <div className={styles["toolbar-container"]}>         
                <SiGooglemessages className={styles["toolbar-element"]}/>

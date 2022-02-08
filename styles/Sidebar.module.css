@@ -13,7 +13,7 @@
    min-height: var(--header-height);
    border-bottom: .2rem solid rgba(0, 0, 0, 0.15);
    color: var(--main-text-colour);
-   padding: 0 1.6rem;
+   padding: 0 1.4rem;
    font-size: 1.6rem;
    font-weight: 400;
    display: flex;
@@ -29,8 +29,8 @@
 }
 
 .settings-dropdown-icon {
-   min-width: 2rem;
-   min-height: 2rem;
+   min-width: 2.2rem;
+   min-height: 2.2rem;
    color: #D6D6D7;
 }
 
@@ -44,12 +44,12 @@
 /* Notice */
 
 .close-notice-icon {
-   min-height: 2.4rem;
-   min-width: 2.4rem;
+   min-height: 2.5rem;
+   min-width: 2.5rem;
    color: var(--main-element-colour);
    position: absolute;
-   top: .8rem;
-   right: 1rem;
+   top: .6rem;
+   right: 1.2rem;
    cursor: pointer;
 }
 
@@ -116,38 +116,4 @@
 
 .channels-container:hover {
    scrollbar-color: #202225 transparent;
-}
-
-.context-menu {
-   position: absolute;
-   background-color: #18191C;
-   padding: 1.6rem;
-   border-radius: .4rem;
-   display: none;
-   flex-direction: column;
-   z-index: 10;
-}
-
-.context-menu-element {
-   color: var(--main-element-colour);
-   font-size: 1.6rem;
-   text-align: left;
-   border-radius: .4rem;
-   background-color: #18191C;
-   border: none;
-   padding: .6rem;
-}
-
-.context-menu-element:hover {
-   color: white;
-   background-color: var(--dark-discord-colour);
-}
-
-.context-menu-element:active {
-   background-color: #3C45A5;
-}
-
-.context-menu-line {
-   margin: .2rem 0;
-   color: #26272A;
 }

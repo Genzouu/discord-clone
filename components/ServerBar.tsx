@@ -24,8 +24,8 @@ export default function ServerBar() {
                // <input className={styles.server} type="image" src="http://icon-library.com/images/discord-transparent-server-icon/discord-transparent-server-icon-17.jpg"></input>//         
             ))}
          </div>
-         <ServerIcon showPill={false} icon={""} />
          <ServerIcon showPill={false} icon={""} onClick={() => dispatch(addServer("new server"))} />
+         <ServerIcon showPill={false} icon={""} />
          <hr className={`${styles.divider} ${styles.center}`} />
          <ServerIcon showPill={false} icon={""} />
       </div>

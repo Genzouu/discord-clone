@@ -6,7 +6,7 @@
   display: none;
   flex-direction: column;
   z-index: 10;
-  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 1.2rem rgba(0, 0, 0, 0.5);
 }
 
 /* Context Menu Item */

@@ -9,8 +9,18 @@ import Chat from '../components/Chat'
 import styles from '../styles/Home.module.css'
 import { Provider } from 'react-redux'
 import { store } from '../state/store'
+import { useEffect } from 'react'
 
 const Home: NextPage = () => {
+
+   useEffect(() =>{
+      if (process.browser) {
+         document.addEventListener("contextmenu", (e) => {
+            e.preventDefault();
+         })
+      }
+   }, []);
+
   return (
     <div className={styles.wrapper}>
       <Provider store={store}>

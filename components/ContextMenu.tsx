@@ -15,6 +15,9 @@ export interface ContextMenuProps {
 }
 
 export default function ContextMenu(props: ContextMenuProps) {
+
+   // move the positional logic into here
+
    return (
       <div id="context-menu" className={styles["context-menu"]}>
          {props.data.map((item, index) => (

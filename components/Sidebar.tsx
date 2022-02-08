@@ -64,8 +64,7 @@ export default function Sidebar() {
       e.preventDefault();
       let contextMenu = (document.getElementById("context-menu") as HTMLDivElement);
       contextMenu.style.display = "flex";
-      // contextMenu.style.top = (e.pageY - contextMenu.offsetHeight/2).toString() + "px";
-      contextMenu.style.top = e.pageY.toString() + "px";
+      contextMenu.style.top = (contextMenu.offsetHeight + e.pageY + 12 > window.innerHeight ? window.innerHeight - contextMenu.offsetHeight - 12 : e.pageY) + "px";
       contextMenu.style.left = e.pageX.toString() + "px";
    }
 

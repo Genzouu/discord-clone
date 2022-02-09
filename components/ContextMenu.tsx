@@ -4,6 +4,7 @@ import { ContextMenuColours } from "../types/ContextMenuColours"
 export interface ContextMenuType {
    displayText: string,
    textColourVariant?: ContextMenuColours,
+   isActive?: boolean,
    hasCheckbox?: boolean,
    hasLineAfter?: boolean,
    onClick?: () => void,

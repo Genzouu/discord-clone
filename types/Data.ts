@@ -2,7 +2,10 @@ export default interface Data {
    user: PrivateUser,
    servers: {
       name: string,
-      categories: Category[] | Channel[],
+      categoryIndex: number,
+      channelIndex: number,
+      newChannels: Channel[],
+      categories: Category[],
       members: PublicUser[],
    }[],
 }

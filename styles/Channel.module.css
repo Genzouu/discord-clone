@@ -1,31 +1,38 @@
 .channel-icon {
-   min-height: 2rem;
-   min-width: 2rem;
+  min-height: 2rem;
+  min-width: 2rem;
 }
 
 .channel {
-   height: 3rem;
-   width: 95%;
-   text-transform: none;
-   position: relative;
-   right: -0.2rem;
-   font-size: 1.5rem;
-   font-weight: 600;
-   color: #89928B;
-   display: flex;
-   align-items: center;
-   text-align: center;
-   gap: .8rem;
-   padding-left: 1rem;
-   margin: 0 auto;
-   margin-top: .6rem;
-   border-radius: .2rem;
+  height: 3rem;
+  width: 95%;
+  text-transform: none;
+  position: relative;
+  right: -0.2rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #89928b;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 0.8rem;
+  padding-left: 1rem;
+  margin: 0 auto;
+  margin-top: 0.3rem;
+  border-radius: 0.3rem;
 }
 
 .channel:hover {
-   background-color: #35373D;
+  background-color: #35373d;
 }
 
 .channel:hover > p {
-   color: var(--main-element-hover-colour);
+  color: var(--main-element-hover-colour);
+}
+
+.selected,
+.selected:hover,
+.selected:hover > p {
+  color: white;
+  background-color: #393d43;
 }

@@ -12,12 +12,13 @@ import { StoreState } from "../state/reducers"
 import { addCategory, addChannel } from "../state/slices/serversSlice"
 import ContextMenu, { ContextMenuType } from "./ContextMenu"
 import { ContextMenuColours } from "../types/ContextMenuColours"
+import Channel from "./Channel"
 
 export default function Sidebar() {
 
    const dispatch = useDispatch();
    const selection = useSelector((state: StoreState) => state.selection);
-   const categories = useSelector((state: StoreState) => state.servers[selection.server].categories);
+   const servers = useSelector((state: StoreState) => state.servers[selection.server]);
 
    const [showNotice, setShowNotice] = useState(true);
 
@@ -32,7 +33,7 @@ export default function Sidebar() {
       },
       {
          displayText: "Create a channel",
-         onClick: () => dispatch(addChannel({ serverIndex: selection.server, categoryIndex: selection.category, name: "new channel" })),
+         onClick: () => dispatch(addChannel({ serverIndex: selection.server, categoryIndex: -1, name: "new channel", description: "channel description" })),
       },
       {
          displayText: "Invite friends",
@@ -79,9 +80,14 @@ export default function Sidebar() {
             <MdKeyboardArrowDown className={styles["settings-dropdown-icon"]} />
          </div>
          {showNotice ? 
-            // <img src="/assets/5e690f4c63a19a36bff7f6364eaa6ea2.svg"></img>
+            // <img src="https://discord.com/assets/5e690f4c63a19a36bff7f6364eaa6ea2.svg"></img>
             // There's a server list! Gather some friends and boost the server. 
             // Check the level and benefits.
+
+            // https://discord.com/assets/7de1e682a4fbf1483ad81f3872e5a9b2.png
+            // Want to emphasize the individuality of your server?
+            // You can unlock a custom server banner after 7 more boosts (bolded)
+            // Boost the server
             <div className={styles["notice-container"]}>
                <BsX className={styles["close-notice-icon"]} onClick={() => setShowNotice(false)}/>
                <div className={styles["invite-friends-notice"]}>              
@@ -96,9 +102,18 @@ export default function Sidebar() {
             </div>
          : null }
          <div className={styles["channels-container"]} onContextMenu={(e) => openContextMenu(e)}>
-            {categories.map((section, index) => (
-               <Category name={section.name} channels={section.channels} index={index} key={index}/>
-            ))}
+            { servers.newChannels.length > 0 ? 
+               <div className={styles["new-channels-container"]}>
+                  {servers.newChannels.map((channel, index) => (
+                     <Channel name={channel.name} categoryIndex={-1} index={index} key={index}/>
+                  ))}
+               </div>
+            : null}
+            <div className={styles["categories-container"]}>
+               {servers.categories.map((category, index) => (
+                  <Category name={category.name} channels={category.channels} index={index} key={index}/>
+               ))}
+            </div>
             <ContextMenu data={sidebarContextMenu} />          
          </div>
       </div>

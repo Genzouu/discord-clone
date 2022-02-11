@@ -1,119 +1,123 @@
 .sidebar {
-   min-width: 24rem;
-   height: 100vh;
-   background-color: var(--secondary-background-colour);
-   display: flex;
-   flex-direction: column;
+  min-width: 24rem;
+  height: 100vh;
+  background-color: var(--secondary-background-colour);
+  display: flex;
+  flex-direction: column;
 }
 
 /* Header */
 
 .server-settings {
-   width: 100%;
-   min-height: var(--header-height);
-   border-bottom: .2rem solid rgba(0, 0, 0, 0.15);
-   color: var(--main-text-colour);
-   padding: 0 1.4rem;
-   font-size: 1.6rem;
-   font-weight: 400;
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   text-align: left;
-   transition: background-color 150ms;
-   cursor: pointer;
+  width: 100%;
+  min-height: var(--header-height);
+  border-bottom: 0.2rem solid rgba(0, 0, 0, 0.15);
+  color: var(--main-text-colour);
+  padding: 0 1.4rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  transition: background-color 150ms;
+  cursor: pointer;
 }
 
 .server-settings:hover {
-   background-color: #35373D;
+  background-color: #35373d;
 }
 
 .settings-dropdown-icon {
-   min-width: 2.2rem;
-   min-height: 2.2rem;
-   color: #D6D6D7;
+  min-width: 2.2rem;
+  min-height: 2.2rem;
+  color: #d6d6d7;
 }
 
 .notice-container {
-   height: fit-content;
-   width: 100%;
-   border-bottom: .1rem solid #3C3D42;
-   position: relative;
+  height: fit-content;
+  width: 100%;
+  border-bottom: 0.1rem solid #3c3d42;
+  position: relative;
 }
 
 /* Notice */
 
 .close-notice-icon {
-   min-height: 2.5rem;
-   min-width: 2.5rem;
-   color: var(--main-element-colour);
-   position: absolute;
-   top: .6rem;
-   right: 1.2rem;
-   cursor: pointer;
+  min-height: 2.5rem;
+  min-width: 2.5rem;
+  color: var(--main-element-colour);
+  position: absolute;
+  top: 0.6rem;
+  right: 1.2rem;
+  cursor: pointer;
 }
 
 .close-notice-icon:hover {
-   color: var(--main-element-hover-colour);
+  color: var(--main-element-hover-colour);
 }
 
 .invite-friends-notice {
-   display: flex;
-   flex-direction: column; 
-   align-items: center;
-   justify-content: center;
-   padding: 1.4rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.4rem 0;
 }
 
 .invite-friends-notice-icon {
-   min-width: 4.4rem;
-   min-height: 4.4rem;
-   color: #ABACAE;
-   background-color: #424549;
-   border: 2px solid #202020;
-   border-radius: 100%;
-   margin-bottom: 1.4rem;
+  min-width: 4.4rem;
+  min-height: 4.4rem;
+  color: #abacae;
+  background-color: #424549;
+  border: 2px solid #202020;
+  border-radius: 100%;
+  margin-bottom: 1.4rem;
 }
 
 .invite-friends-notice-text {
-   color: var(--main-element-hover-colour);
-   font-size: 1.6rem;
-   text-align: center;
-   margin-bottom: 1.4rem;
+  color: var(--main-element-hover-colour);
+  font-size: 1.6rem;
+  text-align: center;
+  margin-bottom: 1.4rem;
 }
 
 .invite-friends-notice-button {
-   width: 88%; 
-   height: 3rem;
-   color: white;
-   background-color: var(--discord-colour);
-   border: none;
-   border-radius: .2rem;
-   font-size: 1.6rem;
-   text-align: center;
-   transition: background-color 150ms;
-   cursor: pointer;
+  width: 88%;
+  height: 3rem;
+  color: white;
+  background-color: var(--discord-colour);
+  border: none;
+  border-radius: 0.2rem;
+  font-size: 1.6rem;
+  text-align: center;
+  transition: background-color 150ms;
+  cursor: pointer;
 }
 
 .invite-friends-notice-button:hover {
-   background-color: var(--dark-discord-colour);
+  background-color: var(--dark-discord-colour);
 }
 
 /* Sections and Channels */
 
 .channels-container {
-   height: 100%;
-   width: 100%;
-   scrollbar-width: thin;
-   display: flex;
-   flex-direction: column;
-   padding: 1.4rem 0;
-   scrollbar-width: thin;
-   scrollbar-color: transparent transparent;
-   overflow: scroll;
-   overflow-x: hidden;
+  height: 100%;
+  width: 100%;
+  scrollbar-width: thin;
+  display: flex;
+  flex-direction: column;
+  padding: 1.4rem 0;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
 .channels-container:hover {
-   scrollbar-color: #202225 transparent;
+  scrollbar-color: #202225 transparent;
+}
+
+.new-channels-container {
+  margin-bottom: 1.6rem;
 }

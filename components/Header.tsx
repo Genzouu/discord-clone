@@ -25,7 +25,7 @@ export default function Header() {
             <div className={styles["channels-container"]}>
                {/* <BsMegaphoneFill className={styles["channel-icon"]} /> */}
                <BiHash className={styles["channel-icon"]} />
-               <h1>{servers[selection.server].categories[selection.category]?.channels[selection.channel]?.name}</h1>
+               <h1>{selection.category > 0 ? servers[selection.server].categories[selection.category]?.channels[selection.channel]?.name : servers[selection.server].newChannels[selection.channel]?.name}</h1>
                <button className={styles["follow-button"]}>Follow</button>
                <div className={styles.vl}></div>
                <p className={styles.description}>{servers[selection.server].categories[selection.category]?.channels[selection.channel]?.description}</p>

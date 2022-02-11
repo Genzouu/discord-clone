@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import { BiHash } from "react-icons/bi"
 import { HiOutlinePlusSm } from "react-icons/hi"
 import { MdKeyboardArrowRight } from "react-icons/md"
@@ -19,21 +20,30 @@ export default function Category(props: CategoryProps) {
 
    const dispatch = useDispatch();
    const selection = useSelector((state: StoreState) => state.selection);
+   const server = useSelector((state: StoreState) => state.servers[selection.server]);
+
+   // useEffect(() => {
+   //    if (server.categoryIndex === props.index) {
+   //       if (process.browser) (document.getElementsByClassName("category-details")[props.index] as HTMLDetailsElement).open = true;
+   //    }
+   // }, []);
 
    const addNewChannel = () => {
-      dispatch(addChannel({serverIndex: selection.server, categoryIndex: props.index, name: "new channel " + props.channels.length}));
+      dispatch(addChannel({serverIndex: selection.server, categoryIndex: props.index, name: "new channel " + props.channels.length, description: "new description"}));
    }
 
    return (
-      <details className={styles["category"]} key={props.index}>                     
-         <summary className={styles["category-summary"]}>
-            <MdKeyboardArrowRight className={styles["expand-section-icon"]} />
-            <p className={styles["category-name"]}>{props.name + " " + (props.index + 1)}</p>
-            <HiOutlinePlusSm className={styles["add-channel-icon"]} onClick={() => addNewChannel()}/> 
-         </summary>
-         {props.channels.map((channel, index) => (
-            <ChannelComponent name={channel.name} categoryIndex={props.index} index={index} key={index}/>
-         ))}
-      </details>
+      <div className={styles["category"]}>
+         <HiOutlinePlusSm className={styles["add-channel-icon"]} onClick={() => addNewChannel()}/> 
+         <details className={styles["category-details"]}>                     
+            <summary className={styles["category-summary"]}>
+               <MdKeyboardArrowRight className={styles["expand-section-icon"]} />
+               <p className={styles["category-name"]}>{props.name + " " + (props.index + 1)}</p>
+            </summary>
+            {props.channels.map((channel, index) => (
+               <ChannelComponent name={channel.name} categoryIndex={props.index} index={index} key={index}/>
+            ))}
+         </details>
+      </div>
    )
 }

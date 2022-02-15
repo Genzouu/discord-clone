@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { StoreState } from '../state/reducers';
+import { Store } from '../state/reducers';
 import { setSelectedServer } from '../state/slices/selectionSlice';
 import { addServer } from '../state/slices/serversSlice';
 
@@ -10,7 +10,7 @@ import ServerIcon from './ServerIcon';
 export default function ServerBar() {
 
    const dispatch = useDispatch();
-   const servers = useSelector((state: StoreState) => state.servers);
+   const servers = useSelector((state: Store) => state.servers);
 
    const [prevIndex, setPrevIndex] = useState<number>();
 

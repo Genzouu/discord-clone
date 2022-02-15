@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { StoreState } from "../state/reducers";
+import { Store } from "../state/reducers";
 import styles from "../styles/ServerIcon.module.css"
 
 interface ServerIconProps {
@@ -12,7 +12,7 @@ interface ServerIconProps {
 
 export default function ServerIcon(props: ServerIconProps) {
 
-   const selection = useSelector((state: StoreState) => state.selection);
+   const selection = useSelector((state: Store) => state.selection);
 
    return (
       <div className={`${styles["server-icon"]} ${props.index === selection.server ? styles["selected"] : ""}`}>

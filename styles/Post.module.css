@@ -1,9 +1,76 @@
 .post {
-   font-size: 2rem;
-   text-align: left;
-   color: var(--main-element-hover-colour);
+  font-size: 1.6rem;
+  text-align: left;
+  color: var(--main-element-hover-colour);
+  padding: 0.4rem 1.6rem;
+  display: flex;
 }
 
 .post:hover {
-   background-color: #32353B;
+  background-color: #32353b;
+}
+
+.postPartial {
+  padding: 0.3rem 1.6rem;
+}
+
+.profile-pic-container {
+  margin-right: 1.6rem;
+}
+
+.profile-pic {
+  min-width: 4rem;
+  min-height: 4rem;
+  border-radius: 100%;
+  border: none;
+  cursor: pointer;
+  background-color: #282c30;
+}
+
+.right-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.username-date-container {
+  width: 100%;
+  gap: 1rem;
+  display: flex;
+  margin-bottom: -0.2rem;
+}
+
+.username {
+  cursor: pointer;
+}
+
+.date {
+  font-size: 1.1rem;
+  position: relative;
+  top: 0.6rem;
+  color: #6e6f72;
+}
+
+.message-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.6rem;
+  padding-left: 1.4rem;
+}
+
+.post:hover .message-time {
+  color: #6e6f72;
+}
+
+.message-time {
+  font-size: 1.1rem;
+  color: var(--main-background-colour);
+}
+
+.message {
+  padding-top: 0.1rem;
+}
+
+.messagePartial {
+  padding-top: 0.2rem;
+  margin-top: -0.6rem;
 }

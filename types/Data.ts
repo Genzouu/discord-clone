@@ -18,19 +18,20 @@ export interface Category {
 export interface Channel {
    name: string,
    description: string,
-   posts: Post[],
+   posts: PostType[],
 }
 
-export interface Post {
-   message: string,
-   image: string,
-   date: string,
+export interface PostType {
+   userID: number,
+   message: string | null,
+   image: string | null,
+   date: Date,
 }
 
 export interface PrivateUser {
    data: PublicUser
    friendIDs: number[]
-   directMessages: Post[][]
+   directMessages: PostType[][]
 }
 
 export interface PublicUser {

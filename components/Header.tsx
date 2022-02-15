@@ -9,7 +9,7 @@ import { MdInbox } from "react-icons/md"
 import { IoMdHelpCircle } from "react-icons/io"
 import { BiSearch } from "react-icons/bi"
 import { useSelector } from 'react-redux'
-import { StoreState } from '../state/reducers'
+import { Store } from '../state/reducers'
 // ImUsers
 // IoHelpCircle
 // BsBellSlashFill
@@ -17,18 +17,18 @@ import { StoreState } from '../state/reducers'
 
 export default function Header() {
 
-   const selection = useSelector((state: StoreState) => state.selection);
-   const servers = useSelector((state: StoreState) => state.servers);
+   const selection = useSelector((state: Store) => state.selection);
+   const server = useSelector((state: Store) => state.servers[selection.server]);
 
    return (
       <div className={styles.header}>
             <div className={styles["channels-container"]}>
                {/* <BsMegaphoneFill className={styles["channel-icon"]} /> */}
                <BiHash className={styles["channel-icon"]} />
-               <h1>{selection.category > 0 ? servers[selection.server].categories[selection.category]?.channels[selection.channel]?.name : servers[selection.server].newChannels[selection.channel]?.name}</h1>
+               <h1>{server.categoryIndex > 0 ? server.categories[server.categoryIndex]?.channels[server.channelIndex]?.name : server.newChannels[server.channelIndex]?.name}</h1>
                <button className={styles["follow-button"]}>Follow</button>
                <div className={styles.vl}></div>
-               <p className={styles.description}>{servers[selection.server].categories[selection.category]?.channels[selection.channel]?.description}</p>
+               <p className={styles.description}>{server.categories[server.categoryIndex]?.channels[server.channelIndex]?.description}</p>
             </div>
             <div className={styles["toolbar-container"]}>         
                <SiGooglemessages className={styles["toolbar-element"]}/>

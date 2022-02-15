@@ -8,7 +8,7 @@ import { HiOutlinePlusSm } from "react-icons/hi"
 import styles from "../styles/Sidebar.module.css"
 import Category from "./Category"
 import { useDispatch, useSelector } from "react-redux"
-import { StoreState } from "../state/reducers"
+import { Store } from "../state/reducers"
 import { addCategory, addChannel } from "../state/slices/serversSlice"
 import ContextMenu, { ContextMenuType } from "./ContextMenu"
 import { ContextMenuColours } from "../types/ContextMenuColours"
@@ -17,8 +17,8 @@ import Channel from "./Channel"
 export default function Sidebar() {
 
    const dispatch = useDispatch();
-   const selection = useSelector((state: StoreState) => state.selection);
-   const servers = useSelector((state: StoreState) => state.servers[selection.server]);
+   const selection = useSelector((state: Store) => state.selection);
+   const servers = useSelector((state: Store) => state.servers[selection.server]);
 
    const [showNotice, setShowNotice] = useState(true);
 
@@ -109,7 +109,7 @@ export default function Sidebar() {
                   ))}
                </div>
             : null}
-            <div className={styles["categories-container"]}>
+            <div id="categories-container">
                {servers.categories.map((category, index) => (
                   <Category name={category.name} channels={category.channels} index={index} key={index}/>
                ))}

@@ -1,6 +1,6 @@
 import { BiHash } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
-import { StoreState } from "../state/reducers";
+import { Store } from "../state/reducers";
 import { setSelectedChannel } from "../state/slices/serversSlice";
 
 import styles from "../styles/Channel.module.css"
@@ -14,8 +14,8 @@ interface ChannelProps {
 export default function Channel(props: ChannelProps) {
 
    const dispatch = useDispatch();
-   const selection = useSelector((state: StoreState) => state.selection);
-   const server = useSelector((state: StoreState) => state.servers[selection.server]);
+   const selection = useSelector((state: Store) => state.selection);
+   const server = useSelector((state: Store) => state.servers[selection.server]);
 
    return (
       <div 

@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react"
+import { FormEvent, useEffect, useState } from "react"
 import { HiPlusCircle } from "react-icons/hi"
 import { HiGift } from "react-icons/hi"
 import { RiFileGifFill } from "react-icons/ri"
@@ -8,39 +8,60 @@ import { useDispatch, useSelector } from "react-redux"
 
 import styles from "../styles/Chat.module.css"
 import PostComponent from "./Post"
-import { StoreState } from "../state/reducers"
-import { Post } from "../types/Data"
+import { Store } from "../state/reducers"
+import { PostType } from "../types/Data"
 import { addPost } from "../state/slices/serversSlice"
-import { text } from "stream/consumers"
 
 export default function Chat() {
 
    const dispatch = useDispatch();
-   const selection = useSelector((state: StoreState) => state.selection);
-   const posts: Post[] | undefined = useSelector((state: StoreState) => state.servers[selection.server]?.categories[selection.category]?.channels[selection.channel]?.posts);
+   const selection = useSelector((state: Store) => state.selection);
+   const server = useSelector((state: Store) => state.servers[selection.server]);
+   const posts: PostType[] | undefined = useSelector((state: Store) => (
+      server.categoryIndex >= 0 ? 
+      state.servers[selection.server]?.categories[server.categoryIndex].channels[server.channelIndex]?.posts : 
+      state.servers[selection.server]?.newChannels[server.channelIndex]?.posts
+   ));
 
    const addPostFunc = (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       let input = (document.getElementById("text-input") as HTMLInputElement);
-      dispatch(addPost({ 
-         serverIndex: selection.server, 
-         categoryIndex: selection.category, 
-         channelIndex: selection.channel,
-         post: {
+      if (input.value !== "") {
+         let post: PostType = {
+            userID: 12345678,
             message: input.value,
             image: "",
-            date: Date.now.toString(),
-         }
-      }));
-      input.value = "";
+            date: new Date(),
+         };
+         dispatch(addPost({ 
+            serverIndex: selection.server, 
+            categoryIndex: server.categoryIndex,
+            channelIndex: server.channelIndex,
+            post: post,
+         }));
+         input.value = "";
+      }
    }
+
+   const showFull = (index: number): boolean => {
+      if (index !== 0) {
+         if (posts[index].userID === posts[index].userID && posts[index].date.toDateString() === posts[index].date.toDateString()) {
+            return false;
+         }
+      }
+      return true;
+   }
+
+   // add date line break (if the previous message was posted on a diffrent date to the new message, split the sections up)
 
    return (
       <div className={styles.chat}>
-         <div className={styles.posts}>
-            {posts?.map((post, index) => (
-               <PostComponent userID={0} message={post.message} time={post.date} key={index}/>
-            ))}
+         <div className={styles["posts-container"]}>
+            <div className={styles.posts}>
+               {posts?.map((data, index) => (
+                  <PostComponent showFull={showFull(index)} userID={data.userID} message={data.message} image={data.image} date={data.date} key={index}/>
+               ))}
+            </div>
          </div>
          <div className={styles["text-input-area"]}>
             <div className={styles["text-input-container"]}>

@@ -3,7 +3,7 @@ import { BiHash } from "react-icons/bi"
 import { HiOutlinePlusSm } from "react-icons/hi"
 import { MdKeyboardArrowRight } from "react-icons/md"
 import { useDispatch, useSelector } from "react-redux"
-import { StoreState } from "../state/reducers"
+import { Store } from "../state/reducers"
 import { addChannel } from "../state/slices/serversSlice"
 
 import styles from "../styles/Category.module.css"
@@ -19,17 +19,12 @@ interface CategoryProps {
 export default function Category(props: CategoryProps) {
 
    const dispatch = useDispatch();
-   const selection = useSelector((state: StoreState) => state.selection);
-   const server = useSelector((state: StoreState) => state.servers[selection.server]);
-
-   // useEffect(() => {
-   //    if (server.categoryIndex === props.index) {
-   //       if (process.browser) (document.getElementsByClassName("category-details")[props.index] as HTMLDetailsElement).open = true;
-   //    }
-   // }, []);
+   const selection = useSelector((state: Store) => state.selection);
 
    const addNewChannel = () => {
       dispatch(addChannel({serverIndex: selection.server, categoryIndex: props.index, name: "new channel " + props.channels.length, description: "new description"}));
+      // open this category if the user adds a new channel (in case it's closed)
+      (document.getElementById("categories-container")!.children[props.index].children[1] as HTMLDetailsElement).open = true;
    }
 
    return (

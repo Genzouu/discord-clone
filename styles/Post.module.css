@@ -46,7 +46,7 @@
 .date {
   font-size: 1.1rem;
   position: relative;
-  top: 0.6rem;
+  top: 0.5rem;
   color: #6e6f72;
 }
 
@@ -54,7 +54,7 @@
   display: inline-flex;
   align-items: center;
   gap: 1.6rem;
-  padding-left: 1.4rem;
+  padding-left: 1.3rem;
 }
 
 .post:hover .message-time {

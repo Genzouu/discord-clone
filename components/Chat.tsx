@@ -1,31 +1,45 @@
-import { FormEvent, useEffect, useState } from "react"
-import { HiPlusCircle } from "react-icons/hi"
-import { HiGift } from "react-icons/hi"
-import { RiFileGifFill } from "react-icons/ri"
-import { FaStamp } from "react-icons/fa"
-import { FaLaughSquint } from "react-icons/fa"
-import { useDispatch, useSelector } from "react-redux"
+import { FormEvent, useEffect, useState } from "react";
+import { HiPlusCircle } from "react-icons/hi";
+import { HiGift } from "react-icons/hi";
+import { RiFileGifFill } from "react-icons/ri";
+import { FaStamp } from "react-icons/fa";
+import { FaLaughSquint } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
 
-import styles from "../styles/Chat.module.css"
-import PostComponent from "./Post"
-import { Store } from "../state/reducers"
-import { PostType } from "../types/Data"
-import { addPost } from "../state/slices/serversSlice"
+import styles from "../styles/Chat.module.css";
+import PostComponent from "./Post";
+import { Store } from "../state/reducers";
+import { PostType } from "../types/Data";
+import { addPost } from "../state/slices/serversSlice";
 
 export default function Chat() {
-
    const dispatch = useDispatch();
    const selection = useSelector((state: Store) => state.selection);
    const server = useSelector((state: Store) => state.servers[selection.server]);
-   const posts: PostType[] | undefined = useSelector((state: Store) => (
-      server.categoryIndex >= 0 ? 
-      state.servers[selection.server]?.categories[server.categoryIndex].channels[server.channelIndex]?.posts : 
-      state.servers[selection.server]?.newChannels[server.channelIndex]?.posts
-   ));
+   const posts: PostType[] | undefined = useSelector((state: Store) =>
+      server.categoryIndex >= 0
+         ? state.servers[selection.server]?.categories[server.categoryIndex].channels[server.channelIndex]?.posts
+         : state.servers[selection.server]?.newChannels[server.channelIndex]?.posts
+   );
+
+   const months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+   ];
 
    const addPostFunc = (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-      let input = (document.getElementById("text-input") as HTMLInputElement);
+      let input = document.getElementById("text-input") as HTMLInputElement;
       if (input.value !== "") {
          let post: PostType = {
             userID: 12345678,
@@ -33,24 +47,30 @@ export default function Chat() {
             image: "",
             date: new Date(),
          };
-         dispatch(addPost({ 
-            serverIndex: selection.server, 
-            categoryIndex: server.categoryIndex,
-            channelIndex: server.channelIndex,
-            post: post,
-         }));
+         dispatch(
+            addPost({
+               serverIndex: selection.server,
+               categoryIndex: server.categoryIndex,
+               channelIndex: server.channelIndex,
+               post: post,
+            })
+         );
          input.value = "";
       }
-   }
+   };
+
+   const isSameDate = (indexOne: number, indexTwo: number) => {
+      return posts[indexOne].date.toDateString() === posts[indexTwo].date.toDateString();
+   };
 
    const showFull = (index: number): boolean => {
       if (index !== 0) {
-         if (posts[index].userID === posts[index].userID && posts[index].date.toDateString() === posts[index].date.toDateString()) {
+         if (posts[index].userID === posts[index - 1].userID && isSameDate(index, index - 1)) {
             return false;
          }
       }
       return true;
-   }
+   };
 
    // add date line break (if the previous message was posted on a diffrent date to the new message, split the sections up)
 
@@ -59,7 +79,26 @@ export default function Chat() {
          <div className={styles["posts-container"]}>
             <div className={styles.posts}>
                {posts?.map((data, index) => (
-                  <PostComponent showFull={showFull(index)} userID={data.userID} message={data.message} image={data.image} date={data.date} key={index}/>
+                  <div>
+                     {!isSameDate(index, index > 0 ? index - 1 : index) ? (
+                        <div className={styles["line-break-container"]}>
+                           <div className={styles["line-break"]}></div>
+                           <div className={styles["line-break-date"]}>
+                              {`${data.date.getDate()}
+                              ${months[data.date.getMonth()]} 
+                              ${data.date.getFullYear()}`}
+                           </div>
+                        </div>
+                     ) : null}
+                     <PostComponent
+                        showFull={showFull(index)}
+                        userID={data.userID}
+                        message={data.message}
+                        image={data.image}
+                        date={data.date}
+                        key={index}
+                     />
+                  </div>
                ))}
             </div>
          </div>
@@ -72,13 +111,13 @@ export default function Chat() {
                   <input id="text-input" className={styles["text-input"]}></input>
                </form>
                <div className={styles["right-icon-container"]}>
-                  <HiGift className={styles["right-icon"]}/>
-                  <RiFileGifFill className={styles["right-icon"]}/>
-                  <FaStamp className={styles["right-icon"]}/>
-                  <FaLaughSquint className={styles["right-icon"]}/>
+                  <HiGift className={styles["right-icon"]} />
+                  <RiFileGifFill className={styles["right-icon"]} />
+                  <FaStamp className={styles["right-icon"]} />
+                  <FaLaughSquint className={styles["right-icon"]} />
                </div>
             </div>
          </div>
       </div>
-   )
+   );
 }

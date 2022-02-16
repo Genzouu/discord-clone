@@ -1,107 +1,129 @@
 .chat {
-  height: 100%;
-  width: 100%;
-  background-color: var(--main-background-colour);
-  scrollbar-color: #202225 var(--secondary-background-colour);
-  position: relative;
+   height: 100%;
+   width: 100%;
+   background-color: var(--main-background-colour);
+   scrollbar-color: #202225 var(--secondary-background-colour);
+   position: relative;
 }
 
 .posts-container {
-  height: 88.125%;
-  width: 100%;
-  overflow: scroll;
-  overflow-x: hidden;
-  padding-top: 1rem;
-  padding-bottom: 3rem;
-  display: flex;
-  flex-direction: column-reverse;
+   height: 88.125%;
+   width: 100%;
+   overflow: scroll;
+   overflow-x: hidden;
+   padding-top: 1rem;
+   padding-bottom: 3rem;
+   display: flex;
+   flex-direction: column-reverse;
+}
+
+.line-break-container {
+   width: 100%;
+   position: relative;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.line-break {
+   height: 0.1rem;
+   width: 92%;
+   background-color: #42454b;
+   margin: 1.4rem auto;
+}
+
+.line-break-date {
+   height: fit-content;
+   width: fit-content;
+   padding: 0.2rem 0.4rem;
+   position: absolute;
+   top: 0.4rem;
+   font-size: 1.1rem;
+   color: #72767d;
+   background-color: var(--main-background-colour);
 }
 
 /* Text Input */
 
 .text-input-area {
-  width: 100%;
-  min-height: 10rem;
-  background-color: var(--main-background-colour);
-  padding: 0 1.6rem;
-  position: absolute;
-  bottom: 0;
+   width: 100%;
+   min-height: 10rem;
+   background-color: var(--main-background-colour);
+   padding: 0 1.6rem;
+   position: absolute;
+   bottom: 0;
 }
 
 .text-input-area::before {
-  content: "";
-  position: absolute;
-  top: -1.78rem;
-  left: 0;
-  height: 1rem;
-  width: 4rem;
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    var(--main-background-colour) 60%
-  );
+   content: "";
+   position: absolute;
+   top: -1.78rem;
+   left: 0;
+   height: 1rem;
+   width: 4rem;
+   background: linear-gradient(to bottom, transparent, var(--main-background-colour) 60%);
 }
 
 .text-input-container {
-  min-height: 4.4rem;
-  width: 100%;
-  display: flex;
-  position: relative;
-  top: -1.8rem;
+   min-height: 4.4rem;
+   width: 100%;
+   display: flex;
+   position: relative;
+   top: -1.8rem;
 }
 
 .left-icon-container {
-  background-color: #40444b;
-  border-top-left-radius: 0.8rem;
-  border-bottom-left-radius: 0.8rem;
-  display: flex;
-  align-items: center;
-  padding: 0 1.6rem;
-  cursor: pointer;
+   background-color: #40444b;
+   border-top-left-radius: 0.8rem;
+   border-bottom-left-radius: 0.8rem;
+   display: flex;
+   align-items: center;
+   padding: 0 1.6rem;
+   cursor: pointer;
 }
 
 .left-icon-container:hover > .utility-icon {
-  color: var(--main-element-hover-colour);
+   color: var(--main-element-hover-colour);
 }
 
 .utility-icon {
-  width: 2.5rem;
-  height: auto;
-  color: var(--main-element-colour);
+   width: 2.5rem;
+   height: auto;
+   color: var(--main-element-colour);
 }
 
 .text-input-form {
-  width: 100%;
+   width: 100%;
 }
 
 .text-input {
-  min-height: 100%;
-  width: 100%;
-  background-color: #40444b;
-  color: var(--main-element-hover-colour);
-  font-size: 1.4rem;
-  padding-right: 4rem;
-  border: none;
-  outline: none;
+   min-height: 100%;
+   width: 100%;
+   background-color: #40444b;
+   color: var(--main-element-hover-colour);
+   font-size: 1.4rem;
+   padding-right: 4rem;
+   border: none;
+   outline: none;
 }
 
 .right-icon-container {
-  background-color: #40444b;
-  display: flex;
-  align-items: center;
-  gap: 1.2rem;
-  padding-right: 1.2rem;
-  border-top-right-radius: 0.8rem;
-  border-bottom-right-radius: 0.8rem;
+   background-color: #40444b;
+   display: flex;
+   align-items: center;
+   gap: 1.2rem;
+   padding-right: 1.2rem;
+   border-top-right-radius: 0.8rem;
+   border-bottom-right-radius: 0.8rem;
 }
 
 .right-icon {
-  width: 2.2rem;
-  height: auto;
-  color: var(--main-element-colour);
-  cursor: pointer;
+   width: 2.2rem;
+   height: auto;
+   color: var(--main-element-colour);
+   cursor: pointer;
 }
 
 .right-icon:hover {
-  color: var(--main-element-hover-colour);
+   color: var(--main-element-hover-colour);
 }

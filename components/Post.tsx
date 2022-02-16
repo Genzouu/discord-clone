@@ -27,7 +27,7 @@ export default function Post(props: PostProps) {
             </div>
             : null }
             <div className={!props.showFull ? styles["message-container"] : ""}>
-               { !props.showFull ? <p className={styles["message-time"]}>{`${props.date.getHours()}:${props.date.getMinutes()}`}</p> : null }
+               { !props.showFull ? <p className={styles["message-time"]}>{`${props.date.getHours()}:${props.date.getMinutes() < 10 ? "0" + props.date.getMinutes() : props.date.getMinutes()}`}</p> : null }
                <p className={`${styles.message} ${!props.showFull ? styles.messagePartial : ""}`}>{props.message}</p>
             </div>
          </div>

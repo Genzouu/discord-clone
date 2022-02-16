@@ -80,7 +80,7 @@ export default function Chat() {
             <div className={styles.posts}>
                {posts?.map((data, index) => (
                   <div>
-                     {!isSameDate(index, index > 0 ? index - 1 : index) ? (
+                     {index === 0 || !isSameDate(index, index - 1) ? (
                         <div className={styles["line-break-container"]}>
                            <div className={styles["line-break"]}></div>
                            <div className={styles["line-break-date"]}>

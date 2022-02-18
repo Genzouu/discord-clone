@@ -1,33 +1,41 @@
 :root {
-   --main-text-colour: white; 
-   --main-background-colour: #36393F;
-   --secondary-background-colour: #2F3136;
+   --main-text-colour: white;
+   --main-background-colour: #36393f;
+   --secondary-background-colour: #2f3136;
    --header-height: 5rem;
-   --discord-colour: #5865F2;
-   --dark-discord-colour: #4752C4;
-   --main-element-colour: #B9BBBE;
-   --main-element-hover-colour: #DCDDDE;
+   --discord-colour: #5865f2;
+   --dark-discord-colour: #4752c4;
+   --main-element-colour: #b9bbbe;
+   --main-element-hover-colour: #dcddde;
 }
 
-html, body {
+html,
+body {
    padding: 0;
    margin: 0;
    font-size: 62.5%;
-   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+      Helvetica Neue, sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6, p, hr {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+hr {
    margin: 0;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+   color: inherit;
+   text-decoration: none;
 }
 
 * {
-  box-sizing: border-box;
+   box-sizing: border-box;
 }
 
 ::-webkit-scrollbar {

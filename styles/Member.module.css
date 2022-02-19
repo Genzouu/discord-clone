@@ -1,18 +1,19 @@
 .member {
    min-height: 4.4rem;
-   color: #8E908C;
+   color: #8e908c;
    font-size: 1.5rem;
-   border-radius: .4rem;
+   border-radius: 0.4rem;
    display: flex;
    align-items: center;
    overflow: hidden;
-   padding: .4rem .8rem;
+   padding: 0.4rem 0.8rem;
    gap: 1rem;
+   cursor: pointer;
 }
 
 .member:hover {
    color: var(--main-element-hover-colour);
-   background-color: #35373D;
+   background-color: #35373d;
 }
 
 .username {
@@ -20,7 +21,9 @@
    text-overflow: ellipsis;
 }
 
-img.profile-picture  {
+img.profile-picture {
    width: 3.2rem;
    height: auto;
+   border-radius: 100%;
+   object-fit: cover;
 }

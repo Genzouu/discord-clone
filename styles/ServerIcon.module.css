@@ -14,11 +14,9 @@
    border-radius: 100%;
    overflow: hidden;
    cursor: pointer;
+   background: none;
+   object-fit: cover;
    transition: border-radius 250ms ease-in, background-color 125ms ease-in;
-}
-
-.icon-wrapper {
-   background-color: var(--main-background-colour);
 }
 
 .icon-button:hover {
@@ -45,11 +43,8 @@
    background-color: var(--discord-colour);
 }
 
-.icon-butt .icon-image {
-   width: 100%;
-   height: 100%;
-   background: none;
-   object-fit: cover;
+.icon-wrapper {
+   background-color: var(--main-background-colour);
 }
 
 .icon {

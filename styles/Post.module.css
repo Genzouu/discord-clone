@@ -1,76 +1,84 @@
 .post {
-  font-size: 1.6rem;
-  text-align: left;
-  color: var(--main-element-hover-colour);
-  padding: 0.4rem 1.6rem;
-  display: flex;
+   width: 100%;
+   font-size: 1.6rem;
+   text-align: left;
+   color: var(--main-element-hover-colour);
+   padding: 0.4rem 1.6rem;
+   display: flex;
 }
 
 .post:hover {
-  background-color: #32353b;
+   background-color: #32353b;
 }
 
 .postPartial {
-  padding: 0.3rem 1.6rem;
-}
-
-.profile-pic-container {
-  margin-right: 1.6rem;
+   padding: 0.4rem 1.6rem;
 }
 
 .profile-pic {
-  min-width: 4rem;
-  min-height: 4rem;
-  border-radius: 100%;
-  border: none;
-  cursor: pointer;
-  background-color: #282c30;
+   width: 4rem;
+   height: 4rem;
+   align-self: center;
+   margin: auto 0;
+   margin-right: 1.6rem;
+   border-radius: 100%;
+   border: none;
+   cursor: pointer;
+   background-color: #282c30;
 }
 
 .right-container {
-  display: flex;
-  flex-direction: column;
+   display: flex;
+   flex-direction: column;
 }
 
 .username-date-container {
-  width: 100%;
-  gap: 1rem;
-  display: flex;
-  margin-bottom: -0.2rem;
+   width: 100%;
+   height: fit-content;
+   gap: 1rem;
+   display: flex;
 }
 
 .username {
-  cursor: pointer;
+   cursor: pointer;
+}
+
+.username:hover {
+   text-decoration: underline;
 }
 
 .date {
-  font-size: 1.1rem;
-  position: relative;
-  top: 0.5rem;
-  color: #6e6f72;
+   font-size: 1.1rem;
+   position: relative;
+   top: 0.45rem;
+   color: #6e6f72;
 }
 
 .message-container {
-  display: inline-flex;
-  align-items: center;
-  gap: 1.6rem;
-  padding-left: 1.3rem;
+   display: inline-flex;
+   align-items: center;
+   gap: 1.6rem;
+   padding-left: 1.3rem;
 }
 
-.post:hover .message-time {
-  color: #6e6f72;
+.post:hover .post-time {
+   color: #67686b;
 }
 
-.message-time {
-  font-size: 1.1rem;
-  color: var(--main-background-colour);
+.post-time {
+   font-size: 1.1rem;
+   color: var(--main-background-colour);
 }
 
 .message {
-  padding-top: 0.1rem;
+   padding-top: 0.2rem;
 }
 
-.messagePartial {
-  padding-top: 0.2rem;
-  margin-top: -0.6rem;
+.message-full {
+   flex-wrap: wrap;
+}
+
+.message-partial {
+   padding-top: 0.2rem;
+   margin-top: -0.6rem;
 }

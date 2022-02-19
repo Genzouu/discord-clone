@@ -137,6 +137,7 @@
    margin-left: 0.8rem;
    display: flex;
    position: relative;
+   border-radius: 100%;
 }
 
 .user-panel-profile-pic {
@@ -146,8 +147,7 @@
    cursor: pointer;
 }
 
-.user-panel-profile-pic:hover,
-.user-panel-status:hover {
+.user-panel-profile-pic-container:hover {
    filter: brightness(80%);
 }
 
@@ -160,6 +160,7 @@
    position: absolute;
    bottom: -0.3rem;
    right: -0.3rem;
+   cursor: pointer;
 }
 
 .user-panel-username-container {

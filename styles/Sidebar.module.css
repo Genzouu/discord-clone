@@ -131,16 +131,35 @@
    align-items: center;
 }
 
+.user-panel-profile-pic-container {
+   width: 3.2rem;
+   height: auto;
+   margin-left: 0.8rem;
+   display: flex;
+   position: relative;
+}
+
 .user-panel-profile-pic {
    width: 3.2rem;
    height: auto;
    border-radius: 100%;
-   margin-left: 0.8rem;
    cursor: pointer;
 }
 
-.user-panel-profile-pic:hover {
+.user-panel-profile-pic:hover,
+.user-panel-status:hover {
    filter: brightness(80%);
+}
+
+.user-panel-status {
+   width: 1.6rem;
+   height: 1.6rem;
+   background-color: #3ba55d;
+   border-radius: 100%;
+   border: 3px solid #292b2f;
+   position: absolute;
+   bottom: -0.3rem;
+   right: -0.3rem;
 }
 
 .user-panel-username-container {
@@ -173,7 +192,7 @@
    cursor: pointer;
 }
 
-.element-wrapper {
+.element-container {
    width: 3.2rem;
    height: 3.2rem;
    border-radius: 0.4rem;
@@ -181,10 +200,10 @@
    justify-content: center;
 }
 
-.element-wrapper:hover {
+.element-container:hover {
    background-color: #33373b;
 }
 
-.element-wrapper:hover > .user-panel-toolbar-element {
+.element-container:hover > .user-panel-toolbar-element {
    color: var(--main-element-hover-colour);
 }

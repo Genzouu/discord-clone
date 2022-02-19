@@ -131,19 +131,22 @@ export default function Sidebar() {
             <ContextMenu data={sidebarContextMenu} />
          </div>
          <div className={styles["user-panel"]}>
-            <img className={styles["user-panel-profile-pic"]} src={user.profilePic} alt="" />
+            <div className={styles["user-panel-profile-pic-container"]}>
+               <img className={styles["user-panel-profile-pic"]} src={user.profilePic} alt="" />
+               <rect className={styles["user-panel-status"]} />
+            </div>
             <div className={styles["user-panel-username-container"]}>
                <p className={styles["user-panel-username"]}>{user.username}</p>
                <p className={styles["user-panel-discriminator"]}>{"#" + user.discriminator}</p>
             </div>
             <div className={styles["user-panel-toolbar"]}>
-               <div className={styles["element-wrapper"]}>
+               <div className={styles["element-container"]}>
                   <MdMicOff className={styles["user-panel-toolbar-element"]} />
                </div>
-               <div className={styles["element-wrapper"]}>
+               <div className={styles["element-container"]}>
                   <RiHeadphoneFill className={styles["user-panel-toolbar-element"]} />
                </div>
-               <div className={styles["element-wrapper"]}>
+               <div className={styles["element-container"]}>
                   <IoMdSettings className={styles["user-panel-toolbar-element"]} />
                </div>
             </div>

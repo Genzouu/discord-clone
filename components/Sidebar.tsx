@@ -1,7 +1,5 @@
 import { MouseEvent, useEffect, useState } from "react";
-import { MdKeyboardArrowDown, MdMicOff } from "react-icons/md";
-import { TiUserAdd } from "react-icons/ti";
-import { BsX } from "react-icons/bs";
+import { MdKeyboardArrowDown } from "react-icons/md";
 
 import styles from "../styles/Sidebar.module.css";
 import Category from "./Category";
@@ -11,14 +9,14 @@ import { addCategory, addChannel } from "../state/slices/serversSlice";
 import ContextMenu, { ContextMenuType } from "./ContextMenu";
 import { ContextMenuColours } from "../types/ContextMenuColours";
 import Channel from "./Channel";
-import { RiHeadphoneFill } from "react-icons/ri";
-import { IoMdSettings } from "react-icons/io";
+import UserPanel from "./UserPanel";
+import Notice from "./Notice";
+import BoostNotice from "../public/boostnotice.png";
 
 export default function Sidebar() {
    const dispatch = useDispatch();
    const selection = useSelector((state: Store) => state.selection);
    const servers = useSelector((state: Store) => state.servers[selection.server]);
-   const user = useSelector((state: Store) => state.users[0].data);
 
    const [showNotice, setShowNotice] = useState(true);
 
@@ -94,26 +92,12 @@ export default function Sidebar() {
             <MdKeyboardArrowDown className={styles["settings-dropdown-icon"]} />
          </div>
          {showNotice ? (
-            // <img src="https://discord.com/assets/5e690f4c63a19a36bff7f6364eaa6ea2.svg"></img>
-            // There's a server list! Gather some friends and boost the server.
-            // Check the level and benefits.
-
-            // https://discord.com/assets/7de1e682a4fbf1483ad81f3872e5a9b2.png
-            // Want to emphasize the individuality of your server?
-            // You can unlock a custom server banner after 7 more boosts (bolded)
-            // Boost the server
-            <div className={styles["notice-container"]}>
-               <BsX className={styles["close-notice-icon"]} onClick={() => setShowNotice(false)} />
-               <div className={styles["invite-friends-notice"]}>
-                  <TiUserAdd className={styles["invite-friends-notice-icon"]} />
-                  <p className={styles["invite-friends-notice-text"]}>
-                     Let's set on an adventure
-                     <br />
-                     Invite some friends!
-                  </p>
-                  <button className={styles["invite-friends-notice-button"]}>Invite Friends</button>
-               </div>
-            </div>
+            <Notice
+               onClose={() => setShowNotice(false)}
+               image={BoostNotice.src}
+               text={["There's a server list!, Gather some friends and boost the server"]}
+               buttonText={"Check the level and benefits."}
+            />
          ) : null}
          <div className={styles["channels-container"]} onContextMenu={(e) => openContextMenu(e)}>
             {servers.newChannels.length > 0 ? (
@@ -130,27 +114,7 @@ export default function Sidebar() {
             </div>
             <ContextMenu data={sidebarContextMenu} />
          </div>
-         <div className={styles["user-panel"]}>
-            <div className={styles["user-panel-profile-pic-container"]}>
-               <img className={styles["user-panel-profile-pic"]} src={user.profilePic} alt="" />
-               <rect className={styles["user-panel-status"]} />
-            </div>
-            <div className={styles["user-panel-username-container"]}>
-               <p className={styles["user-panel-username"]}>{user.username}</p>
-               <p className={styles["user-panel-discriminator"]}>{"#" + user.discriminator}</p>
-            </div>
-            <div className={styles["user-panel-toolbar"]}>
-               <div className={styles["element-container"]}>
-                  <MdMicOff className={styles["user-panel-toolbar-element"]} />
-               </div>
-               <div className={styles["element-container"]}>
-                  <RiHeadphoneFill className={styles["user-panel-toolbar-element"]} />
-               </div>
-               <div className={styles["element-container"]}>
-                  <IoMdSettings className={styles["user-panel-toolbar-element"]} />
-               </div>
-            </div>
-         </div>
+         <UserPanel />
       </div>
    );
 }

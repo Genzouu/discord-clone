@@ -7,9 +7,10 @@ import { Store } from "../state/reducers";
 
 export default function MembersBar() {
    const members = useSelector((state: Store) => state.users);
+   const membersBarToggle = useSelector((state: Store) => state.membersBarToggle);
 
    return (
-      <div className={styles.members}>
+      <div className={`${styles.members} ${membersBarToggle ? "" : styles["members-hidden"]}`}>
          <div className={styles["member-group"]}>{"Online - " + members.length}</div>
          {members.map((member, index) => (
             <Member

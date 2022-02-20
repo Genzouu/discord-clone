@@ -3,8 +3,9 @@
    font-size: 1.6rem;
    text-align: left;
    color: var(--main-element-hover-colour);
-   padding: 0.4rem 1.6rem;
+   padding: 0.2rem 1.6rem;
    display: flex;
+   word-break: break-word;
 }
 
 .post:hover {
@@ -15,10 +16,13 @@
    padding: 0.4rem 1.6rem;
 }
 
+.profile-pic-container {
+   margin-top: 0.3rem;
+}
+
 .profile-pic {
    width: 4rem;
    height: 4rem;
-   align-self: center;
    margin: auto 0;
    margin-right: 1.6rem;
    border-radius: 100%;
@@ -72,10 +76,6 @@
 
 .message {
    padding-top: 0.2rem;
-}
-
-.message-full {
-   flex-wrap: wrap;
 }
 
 .message-partial {

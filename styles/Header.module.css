@@ -1,137 +1,137 @@
 .header {
-  width: 100%;
-  height: var(--header-height);
-  display: flex;
-  justify-content: space-between;
-  color: white;
-  overflow: hidden;
-  /* background-color: var(--toolbar-background-colour); */
-  background-color: transparent;
-  border-bottom: 0.2rem solid #2d2f34;
-  color: var(--main-text-colour);
-  font-size: 0.8rem;
-  z-index: 0;
+   width: 100%;
+   height: var(--header-height);
+   display: flex;
+   justify-content: space-between;
+   color: white;
+   overflow: hidden;
+   /* background-color: var(--toolbar-background-colour); */
+   background-color: transparent;
+   border-bottom: 0.2rem solid #2d2f34;
+   color: var(--main-text-colour);
+   font-size: 0.8rem;
+   z-index: 0;
 }
 
 .channels-container {
-  display: flex;
-  white-space: nowrap;
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  gap: 0.8rem;
-  align-items: center;
-  padding-left: 1.5rem;
-  font-size: 0.8rem;
+   display: flex;
+   white-space: nowrap;
+   overflow: hidden;
+   position: relative;
+   width: 100%;
+   gap: 0.8rem;
+   align-items: center;
+   padding-left: 1.5rem;
+   font-size: 0.8rem;
 }
 
 .channels-container::after {
-  content: "";
-  width: 2rem;
-  height: 4.8rem;
-  background: linear-gradient(
-    90deg,
-    transparent 25%,
-    var(--main-background-colour)
-  );
-  position: absolute;
-  top: 0;
-  right: 0;
+   content: "";
+   width: 2rem;
+   height: 4.8rem;
+   background: linear-gradient(90deg, transparent 25%, var(--main-background-colour));
+   position: absolute;
+   top: 0;
+   right: 0;
 }
 
 .channel-icon {
-  min-width: 2.8rem;
-  min-height: 2.8rem;
-  margin-right: 0.2rem;
-  color: #72767d;
+   min-width: 2.8rem;
+   min-height: 2.8rem;
+   margin-right: 0.2rem;
+   color: #72767d;
 }
 
 .description {
-  overflow: hidden;
-  text-overflow: ellipsis;
+   overflow: hidden;
+   text-overflow: ellipsis;
 }
 
 .toolbar-container {
-  display: flex;
-  white-space: nowrap;
-  min-width: fit-content;
-  align-items: center;
+   display: flex;
+   white-space: nowrap;
+   min-width: fit-content;
+   align-items: center;
 }
 
 .toolbar-element {
-  min-width: 2.25rem;
-  min-height: 2.25rem;
-  margin-right: 1.75rem;
-  color: var(--main-element-colour);
-  cursor: pointer;
+   min-width: 2.25rem;
+   min-height: 2.25rem;
+   margin-right: 1.75rem;
+   color: var(--main-element-colour);
+   cursor: pointer;
+}
+
+.members-bar-toggle {
+   color: #ffffff;
 }
 
 .toolbar-element:hover {
-  color: var(--main-element-hover-colour);
+   color: var(--main-element-hover-colour);
 }
 
 .toolbar-searchbar-container {
-  min-width: 16rem;
-  min-height: 2.4rem;
-  align-items: center;
-  display: flex;
-  transition: min-width 250ms;
+   min-width: 16rem;
+   min-height: 2.4rem;
+   align-items: center;
+   display: flex;
+   transition: min-width 250ms;
 }
 
 .toolbar-searchbar {
-  min-height: 2.4rem;
-  width: 100%;
-  background-color: #202225;
-  border: none;
-  border-radius: 0.4rem;
-  outline: none;
-  color: rgb(200, 200, 200);
-  cursor: text;
-  text-indent: 0.5rem;
-  transition: 200ms;
+   min-height: 2.4rem;
+   width: 100%;
+   background-color: #202225;
+   border: none;
+   border-radius: 0.4rem;
+   outline: none;
+   color: rgb(200, 200, 200);
+   cursor: text;
+   text-indent: 0.5rem;
+   transition: 200ms;
 }
 
 .toolbar-searchbar-container:focus-within {
-  min-width: 24rem;
+   min-width: 24rem;
 }
 
 .searchbar-search-icon {
-  min-width: 1.7rem;
-  min-height: 1.7rem;
-  color: #72767d;
-  position: relative;
-  left: -2.5rem;
+   min-width: 1.7rem;
+   min-height: 1.7rem;
+   color: #72767d;
+   position: relative;
+   left: -2.5rem;
 }
 
 .follow-button {
-  font-size: 1.4rem;
-  font-weight: bold;
-  width: fit-content;
-  height: fit-content;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 8px;
-  padding-right: 8px;
-  background-color: #4f545c;
-  border: none;
-  border-radius: 0.25rem;
-  color: var(--main-text-colour);
-  transition: 100ms;
+   font-size: 1.4rem;
+   font-weight: bold;
+   width: fit-content;
+   height: fit-content;
+   padding-top: 4px;
+   padding-bottom: 4px;
+   padding-left: 8px;
+   padding-right: 8px;
+   background-color: #4f545c;
+   border: none;
+   border-radius: 0.25rem;
+   color: var(--main-text-colour);
+   transition: 100ms;
 }
 
 .follow-button:hover {
-  background-color: #72767d;
-  cursor: pointer;
+   background-color: #72767d;
+   cursor: pointer;
 }
 
 .vl {
-  margin: 0 1rem;
-  height: 2rem;
-  border-left: 1px solid #42454b;
+   margin: 0 1rem;
+   height: 2rem;
+   border-left: 1px solid #42454b;
 }
 
 .description {
-  color: var(--main-element-colour);
-  font-size: 1.4rem;
-  font-weight: 600;
+   color: var(--main-element-colour);
+   font-size: 1.4rem;
+   font-weight: 600;
 }

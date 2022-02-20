@@ -1,6 +1,6 @@
 .chat {
    height: 100%;
-   width: 100%;
+   flex: 1;
    background-color: var(--main-background-colour);
    scrollbar-color: #202225 var(--secondary-background-colour);
    position: relative;

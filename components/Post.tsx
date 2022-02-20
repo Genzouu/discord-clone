@@ -14,7 +14,11 @@ export default function Post(props: PostProps) {
    );
    return (
       <div className={`${styles.post} ${props.showFull ? "" : styles.postPartial}`}>
-         {props.showFull ? <img className={styles["profile-pic"]} src={user.profilePic}></img> : null}
+         {props.showFull ? (
+            <div className={styles["profile-pic-container"]}>
+               <img className={styles["profile-pic"]} src={user.profilePic} />
+            </div>
+         ) : null}
          <div className={styles["right-container"]}>
             {props.showFull ? (
                <div className={styles["username-date-container"]}>

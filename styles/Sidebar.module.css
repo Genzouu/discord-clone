@@ -22,6 +22,9 @@
    text-align: left;
    transition: background-color 150ms;
    cursor: pointer;
+   position: relative;
+   z-index: 1;
+   background-color: var(--secondary-background-colour);
 }
 
 .server-settings:hover {

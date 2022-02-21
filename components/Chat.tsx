@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent } from "react";
 import { HiPlusCircle } from "react-icons/hi";
 import { HiGift } from "react-icons/hi";
 import { RiFileGifFill } from "react-icons/ri";
@@ -7,7 +7,7 @@ import { FaLaughSquint } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 
 import styles from "../styles/Chat.module.css";
-import PostComponent from "./Post";
+import Post from "./Post";
 import { Store } from "../state/reducers";
 import { PostType } from "../types/Data";
 import { addPost } from "../state/slices/serversSlice";
@@ -90,7 +90,7 @@ export default function Chat() {
                            </div>
                         </div>
                      ) : null}
-                     <PostComponent
+                     <Post
                         showFull={showFull(index)}
                         userID={data.userID}
                         message={data.message}

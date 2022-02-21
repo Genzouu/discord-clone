@@ -6,11 +6,12 @@
    color: white;
    overflow: hidden;
    /* background-color: var(--toolbar-background-colour); */
-   background-color: transparent;
+   background-color: var(--main-background-colour);
    border-bottom: 0.2rem solid #2d2f34;
    color: var(--main-text-colour);
    font-size: 0.8rem;
-   z-index: 0;
+   z-index: 10;
+   position: relative;
 }
 
 .channels-container {

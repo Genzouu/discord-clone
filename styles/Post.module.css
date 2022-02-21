@@ -1,11 +1,10 @@
 .post {
    width: 100%;
-   font-size: 1.6rem;
+   font-size: 1.5rem;
    text-align: left;
    color: var(--main-element-hover-colour);
    padding: 0.2rem 1.6rem;
    display: flex;
-   word-break: break-word;
 }
 
 .post:hover {
@@ -59,10 +58,11 @@
 }
 
 .message-container {
+   max-width: 100%;
    display: inline-flex;
-   align-items: center;
    gap: 1.6rem;
    padding-left: 1.3rem;
+   padding-right: 2.9rem;
 }
 
 .post:hover .post-time {
@@ -76,6 +76,7 @@
 
 .message {
    padding-top: 0.2rem;
+   word-break: break-word;
 }
 
 .message-partial {

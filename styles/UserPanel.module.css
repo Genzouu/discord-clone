@@ -53,11 +53,13 @@
    font-size: 1.3rem;
    color: white;
    font-weight: bold;
+   user-select: all;
 }
 
 .discriminator {
    font-size: 1.2rem;
    color: #afb1b3;
+   user-select: all;
 }
 
 .toolbar {

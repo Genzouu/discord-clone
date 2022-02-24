@@ -1,0 +1,83 @@
+.tooltip {
+   width: fit-content;
+   height: fit-content;
+   max-width: 20rem;
+   background-color: #18191c;
+   padding: 0.8rem 1rem;
+   padding-top: 0.6rem;
+   border-radius: 0.6rem;
+   position: absolute;
+   z-index: 1000;
+   display: flex;
+   box-shadow: 0.4rem 0.4rem 1.2rem rgba(0, 0, 0, 0.5);
+   transform-origin: left;
+   animation: fadePopIn 200ms ease;
+}
+
+@keyframes fadePopIn {
+   0% {
+      opacity: 0%;
+   }
+   50% {
+      transform: scale(1.05);
+   }
+}
+
+.tooltip-right {
+   transform-origin: left;
+}
+
+.tooltip-left {
+   transform-origin: right;
+}
+
+.tooltip-top {
+   transform-origin: bottom;
+}
+
+.tooltip-bottom {
+   transform-origin: top;
+}
+
+.hidden {
+   display: none;
+}
+
+.text {
+   width: 100%;
+   color: white;
+   font-size: 1.6rem;
+   word-wrap: break-word;
+}
+
+/* Direcional Arrow */
+
+.arrow {
+   width: 1.4rem;
+   height: auto;
+   color: #18191c;
+   position: absolute;
+}
+
+.arrow-left {
+   right: -0.8rem;
+   top: calc(50% - 1.4rem / 2);
+   rotate: 90deg;
+}
+
+.arrow-right {
+   left: -0.8rem;
+   top: calc(50% - 1.4rem / 2);
+   rotate: -90deg;
+}
+
+.arrow-top {
+   bottom: -0.85rem;
+   left: calc(50% - 1.4rem / 2);
+   rotate: 180deg;
+}
+
+.arrow-bottom {
+   top: -0.85rem;
+   left: calc(50% - 1.4rem / 2);
+}

@@ -1,19 +1,19 @@
 .server-bar {
-   background-color: #202225;
+   background-color: var(--tertiary-background-colour);
    min-width: 7.2rem;
    height: 100vh;
    padding-top: 1.2rem;
    overflow-y: scroll;
    overflow-x: hidden;
    scrollbar-width: none; /* Firefox */
-   -ms-overflow-style: none;  /* Internet Explorer 10+ */
+   -ms-overflow-style: none; /* Internet Explorer 10+ */
 }
 
 hr.divider {
-   background-color: #2D2F32;
+   background-color: #2d2f32;
    border: none;
-   min-height: .2rem;
+   min-height: 0.2rem;
    width: 3.2rem;
-   margin: .8rem auto;
+   margin: 0.8rem auto;
    border-radius: 1rem;
 }

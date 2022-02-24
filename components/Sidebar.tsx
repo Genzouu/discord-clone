@@ -4,19 +4,19 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import styles from "../styles/Sidebar.module.css";
 import Category from "./Category";
 import { useDispatch, useSelector } from "react-redux";
-import { Store } from "../state/reducers";
+import { StateType } from "../state/reducers";
 import { addCategory, addChannel } from "../state/slices/serversSlice";
 import ContextMenu, { ContextMenuType } from "./ContextMenu";
 import { ContextMenuColours } from "../types/ContextMenuColours";
 import Channel from "./Channel";
 import UserPanel from "./UserPanel";
 import Notice from "./Notice";
-import BoostNotice from "../public/boostnotice.png";
+import BoostNotice from "../public/boost-notice.svg";
 
 export default function Sidebar() {
    const dispatch = useDispatch();
-   const selection = useSelector((state: Store) => state.selection);
-   const servers = useSelector((state: Store) => state.servers[selection.server]);
+   const selection = useSelector((state: StateType) => state.selection);
+   const server = useSelector((state: StateType) => state.servers[selection.server]);
 
    const [showNotice, setShowNotice] = useState(true);
 
@@ -88,27 +88,27 @@ export default function Sidebar() {
    return (
       <div className={styles.sidebar}>
          <div className={styles["server-settings"]}>
-            Server Name
+            {server.name}
             <MdKeyboardArrowDown className={styles["settings-dropdown-icon"]} />
          </div>
          {showNotice ? (
             <Notice
                onClose={() => setShowNotice(false)}
                image={BoostNotice.src}
-               text={["There's a server list!, Gather some friends and boost the server"]}
-               buttonText={"Check the level and benefits."}
+               text={["There's a server list!", "Gather some friends and boost the server"]}
+               buttonText={"Check the level and benefits"}
             />
          ) : null}
          <div className={styles["channels-container"]} onContextMenu={(e) => openContextMenu(e)}>
-            {servers.newChannels.length > 0 ? (
+            {server.newChannels.length > 0 ? (
                <div className={styles["new-channels-container"]}>
-                  {servers.newChannels.map((channel, index) => (
+                  {server.newChannels.map((channel, index) => (
                      <Channel name={channel.name} categoryIndex={-1} index={index} key={index} />
                   ))}
                </div>
             ) : null}
             <div id="categories-container">
-               {servers.categories.map((category, index) => (
+               {server.categories.map((category, index) => (
                   <Category name={category.name} channels={category.channels} index={index} key={index} />
                ))}
             </div>

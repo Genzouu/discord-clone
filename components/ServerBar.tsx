@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Store } from "../state/reducers";
+import { StateType } from "../state/reducers";
 import { setSelectedServer } from "../state/slices/selectionSlice";
 import { addServer } from "../state/slices/serversSlice";
 import { AiOutlinePlus } from "react-icons/ai";
@@ -10,10 +10,11 @@ import { FiDownload } from "react-icons/fi";
 import styles from "../styles/ServerBar.module.css";
 import ServerIcon, { ServerIconColourVariant } from "./ServerIcon";
 import { FaDiscord } from "react-icons/fa";
+import Tooltip from "./Tooltip";
 
 export default function ServerBar() {
    const dispatch = useDispatch();
-   const servers = useSelector((state: Store) => state.servers);
+   const servers = useSelector((state: StateType) => state.servers);
 
    const [prevIndex, setPrevIndex] = useState<number>();
 
@@ -29,8 +30,13 @@ export default function ServerBar() {
    ];
 
    return (
-      <div className={styles["server-bar"]}>
-         <ServerIcon icon={FaDiscord} colourVariant={ServerIconColourVariant.None} showPill={false} />
+      <div id="server-bar" className={styles["server-bar"]}>
+         <ServerIcon
+            icon={FaDiscord}
+            colourVariant={ServerIconColourVariant.None}
+            showPill={false}
+            tooltipText="Home"
+         />
          <hr className={`${styles.divider} ${styles.center}`} />
          <div id="server-container">
             {servers.map((server, index) => (
@@ -49,10 +55,21 @@ export default function ServerBar() {
             icon={AiOutlinePlus}
             colourVariant={ServerIconColourVariant.Green}
             onClick={() => dispatch(addServer("new server"))}
+            tooltipText="Add New Server"
          />
-         <ServerIcon showPill={false} icon={IoMdCompass} colourVariant={ServerIconColourVariant.Green} />
+         <ServerIcon
+            showPill={false}
+            icon={IoMdCompass}
+            colourVariant={ServerIconColourVariant.Green}
+            tooltipText="Search for a Public Server"
+         />
          <hr className={`${styles.divider} ${styles.center}`} />
-         <ServerIcon showPill={false} icon={FiDownload} colourVariant={ServerIconColourVariant.Green} />
+         <ServerIcon
+            showPill={false}
+            icon={FiDownload}
+            colourVariant={ServerIconColourVariant.Green}
+            tooltipText="Download App"
+         />
       </div>
    );
 }

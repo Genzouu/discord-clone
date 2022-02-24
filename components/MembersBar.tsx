@@ -1,13 +1,13 @@
 import styles from "../styles/MembersBar.module.css";
 import Member from "./Member";
 import { useSelector } from "react-redux";
-import { Store } from "../state/reducers";
+import { StateType } from "../state/reducers";
 
 //http://icon-library.com/images/discord-transparent-server-icon/discord-transparent-server-icon-17.jpg
 
 export default function MembersBar() {
-   const members = useSelector((state: Store) => state.users);
-   const membersBarToggle = useSelector((state: Store) => state.membersBarToggle);
+   const members = useSelector((state: StateType) => state.users);
+   const membersBarToggle = useSelector((state: StateType) => state.membersBarToggle);
 
    return (
       <div className={`${styles.members} ${membersBarToggle ? "" : styles["members-hidden"]}`}>

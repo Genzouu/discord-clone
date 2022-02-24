@@ -33,6 +33,7 @@
 .right-container {
    display: flex;
    flex-direction: column;
+   user-select: all;
 }
 
 .username-date-container {
@@ -72,6 +73,7 @@
 .post-time {
    font-size: 1.1rem;
    color: var(--main-background-colour);
+   user-select: none;
 }
 
 .message {

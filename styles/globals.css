@@ -2,6 +2,7 @@
    --main-text-colour: white;
    --main-background-colour: #36393f;
    --secondary-background-colour: #2f3136;
+   --tertiary-background-colour: #202225;
    --header-height: 5rem;
    --discord-colour: #5865f2;
    --dark-discord-colour: #4752c4;
@@ -16,6 +17,7 @@ body {
    font-size: 62.5%;
    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
       Helvetica Neue, sans-serif;
+   user-select: none;
 }
 
 h1,

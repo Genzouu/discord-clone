@@ -15,16 +15,16 @@ export default function Notice(props: NoticeProps) {
       // Want to emphasize the individuality of your server?
       // You can unlock a custom server banner after 7 more boosts (bolded)
       // Boost the server
-      <div className={styles["notice-container"]}>
+      <div className={styles["notice"]}>
          <BsX className={styles["close-icon"]} onClick={props.onClose} />
-         <div className={styles["notice"]}>
+         <div className={styles["container"]}>
             <img className={styles["image"]} src={props.image} />
-            <p className={styles["invite-friends-notice-text"]}>
-               Let's set on an adventure
+            <p className={styles["text"]}>
+               {props.text[0]}
                <br />
-               Invite some friends!
+               {props.text[1]}
             </p>
-            <button className={styles["invite-friends-notice-button"]}>Invite Friends</button>
+            <button className={styles["button"]}>{props.buttonText}</button>
          </div>
       </div>
    );

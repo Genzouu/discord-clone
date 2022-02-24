@@ -1,8 +1,9 @@
-.notice-container {
+.notice {
    height: fit-content;
    width: 100%;
    border-bottom: 0.1rem solid #3c3d42;
    position: relative;
+   padding: 1.6rem;
 }
 
 .close-icon {
@@ -19,39 +20,29 @@
    color: var(--main-element-hover-colour);
 }
 
-.notice {
+.container {
    display: flex;
    flex-direction: column;
    align-items: center;
    justify-content: center;
-   padding: 1.4rem 0;
 }
 
 .image {
-   width: 14rem;
+   width: 16rem;
    margin: 1rem 0;
 }
 
-.invite-friends-notice-icon {
-   min-width: 4.4rem;
-   min-height: 4.4rem;
-   color: #abacae;
-   background-color: #424549;
-   border: 2px solid #202020;
-   border-radius: 100%;
-   margin-bottom: 1.4rem;
-}
-
-.invite-friends-notice-text {
+.text {
    color: var(--main-element-hover-colour);
    font-size: 1.6rem;
    text-align: center;
    margin-bottom: 1.4rem;
 }
 
-.invite-friends-notice-button {
-   width: 88%;
-   height: 3rem;
+.button {
+   width: 100%;
+   height: fit-content;
+   padding: 0.8rem 0;
    color: white;
    background-color: var(--discord-colour);
    border: none;
@@ -62,6 +53,6 @@
    cursor: pointer;
 }
 
-.invite-friends-notice-button:hover {
+.button:hover {
    background-color: var(--dark-discord-colour);
 }

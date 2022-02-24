@@ -1,5 +1,5 @@
 .wrapper {
-   background-color: #36393F;
+   background-color: #36393f;
    overflow: hidden;
    display: flex;
    width: 100vw;
@@ -15,4 +15,31 @@
    height: 100%;
    width: 100%;
    display: flex;
+}
+
+.channel-dne-container {
+   width: 100%;
+   background-color: var(--tertiary-background-colour);
+   align-items: center;
+   text-align: center;
+   padding-top: 24rem;
+}
+
+.channel-dne-image {
+   width: 27rem;
+   height: 25rem;
+   margin-bottom: 1rem;
+}
+
+.channel-dne-title {
+   color: #72767d;
+   font-size: 1.9rem;
+   margin-bottom: 0.4rem;
+}
+
+.channel-dne-text {
+   color: #72767d;
+   font-size: 1.8rem;
+   width: 70%;
+   margin: 0 auto;
 }

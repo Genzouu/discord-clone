@@ -8,15 +8,16 @@ import { useDispatch, useSelector } from "react-redux";
 
 import styles from "../styles/Chat.module.css";
 import Post from "./Post";
-import { Store } from "../state/reducers";
+import { StateType } from "../state/reducers";
 import { PostType } from "../types/Data";
 import { addPost } from "../state/slices/serversSlice";
+import { TooltipCTX } from "../pages";
 
 export default function Chat() {
    const dispatch = useDispatch();
-   const selection = useSelector((state: Store) => state.selection);
-   const server = useSelector((state: Store) => state.servers[selection.server]);
-   const posts: PostType[] | undefined = useSelector((state: Store) =>
+   const selection = useSelector((state: StateType) => state.selection);
+   const server = useSelector((state: StateType) => state.servers[selection.server]);
+   const posts: PostType[] | undefined = useSelector((state: StateType) =>
       server.categoryIndex >= 0
          ? state.servers[selection.server]?.categories[server.categoryIndex].channels[server.channelIndex]?.posts
          : state.servers[selection.server]?.newChannels[server.channelIndex]?.posts
@@ -75,49 +76,65 @@ export default function Chat() {
    // add date line break (if the previous message was posted on a diffrent date to the new message, split the sections up)
 
    return (
-      <div className={styles.chat}>
-         <div className={styles["posts-container"]}>
-            <div className={styles.posts}>
-               {posts?.map((data, index) => (
-                  <div>
-                     {index === 0 || !isSameDate(index, index - 1) ? (
-                        <div className={styles["line-break-container"]}>
-                           <div className={styles["line-break"]}></div>
-                           <div className={styles["line-break-date"]}>
-                              {`${data.date.getDate()}
+      <TooltipCTX>
+         {(ctx) => (
+            <div className={styles.chat}>
+               <div className={styles["posts-container"]}>
+                  <div className={styles.posts}>
+                     {posts?.map((data, index) => (
+                        <div>
+                           {index === 0 || !isSameDate(index, index - 1) ? (
+                              <div className={styles["line-break-container"]}>
+                                 <div className={styles["line-break"]}></div>
+                                 <div className={styles["line-break-date"]}>
+                                    {`${data.date.getDate()}
                               ${months[data.date.getMonth()]} 
                               ${data.date.getFullYear()}`}
-                           </div>
+                                 </div>
+                              </div>
+                           ) : null}
+                           <Post
+                              showFull={showFull(index)}
+                              userID={data.userID}
+                              message={data.message}
+                              image={data.image}
+                              date={data.date}
+                              key={index}
+                           />
                         </div>
-                     ) : null}
-                     <Post
-                        showFull={showFull(index)}
-                        userID={data.userID}
-                        message={data.message}
-                        image={data.image}
-                        date={data.date}
-                        key={index}
-                     />
+                     ))}
                   </div>
-               ))}
-            </div>
-         </div>
-         <div className={styles["text-input-area"]}>
-            <div className={styles["text-input-container"]}>
-               <div className={styles["left-icon-container"]}>
-                  <HiPlusCircle className={styles["utility-icon"]} />
                </div>
-               <form className={styles["text-input-form"]} onSubmit={(e) => addPostFunc(e)}>
-                  <input id="text-input" className={styles["text-input"]}></input>
-               </form>
-               <div className={styles["right-icon-container"]}>
-                  <HiGift className={styles["right-icon"]} />
-                  <RiFileGifFill className={styles["right-icon"]} />
-                  <FaStamp className={styles["right-icon"]} />
-                  <FaLaughSquint className={styles["right-icon"]} />
+               <div className={styles["text-input-area"]}>
+                  <div className={styles["text-input-container"]}>
+                     <div className={styles["left-icon-container"]}>
+                        <HiPlusCircle className={styles["utility-icon"]} />
+                     </div>
+                     <form className={styles["text-input-form"]} onSubmit={(e) => addPostFunc(e)}>
+                        <input id="text-input" className={styles["text-input"]}></input>
+                     </form>
+                     <div className={styles["right-icon-container"]}>
+                        <HiGift
+                           className={styles["right-icon"]}
+                           onMouseEnter={(e) => {
+                              ctx.setTooltipInfoCTX({
+                                 caller: e.currentTarget,
+                                 text: "Gift your friends nitro so that they can use cool chat benefits",
+                                 direction: "top",
+                              });
+                           }}
+                           onMouseLeave={() => {
+                              ctx.setTooltipInfoCTX({ text: "" });
+                           }}
+                        />
+                        <RiFileGifFill className={styles["right-icon"]} />
+                        <FaStamp className={`${styles["right-icon"]} ${styles["stamp"]}`} />
+                        <FaLaughSquint className={styles["right-icon"]} />
+                     </div>
+                  </div>
                </div>
             </div>
-         </div>
-      </div>
+         )}
+      </TooltipCTX>
    );
 }

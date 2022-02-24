@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Store } from "../state/reducers";
+import { StateType } from "../state/reducers";
 import styles from "../styles/Post.module.css";
 import { PostType, PublicUser } from "../types/Data";
 
@@ -10,7 +10,7 @@ interface PostProps extends PostType {
 
 export default function Post(props: PostProps) {
    const user: PublicUser = useSelector(
-      (state: Store) => state.users[state.users.findIndex((x) => x.data.id === props.userID)].data
+      (state: StateType) => state.users[state.users.findIndex((x) => x.data.id === props.userID)].data
    );
    return (
       <div className={`${styles.post} ${props.showFull ? "" : styles.postPartial}`}>

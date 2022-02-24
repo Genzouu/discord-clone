@@ -14,7 +14,7 @@
    position: relative;
 }
 
-.channels-container {
+.channel-container {
    display: flex;
    white-space: nowrap;
    overflow: hidden;
@@ -26,7 +26,7 @@
    font-size: 0.8rem;
 }
 
-.channels-container::after {
+.channel-container::after {
    content: "";
    width: 2rem;
    height: 4.8rem;
@@ -41,67 +41,6 @@
    min-height: 2.8rem;
    margin-right: 0.2rem;
    color: #72767d;
-}
-
-.description {
-   overflow: hidden;
-   text-overflow: ellipsis;
-}
-
-.toolbar-container {
-   display: flex;
-   white-space: nowrap;
-   min-width: fit-content;
-   align-items: center;
-}
-
-.toolbar-element {
-   min-width: 2.25rem;
-   min-height: 2.25rem;
-   margin-right: 1.75rem;
-   color: var(--main-element-colour);
-   cursor: pointer;
-}
-
-.members-bar-toggle {
-   color: #ffffff;
-}
-
-.toolbar-element:hover {
-   color: var(--main-element-hover-colour);
-}
-
-.toolbar-searchbar-container {
-   min-width: 16rem;
-   min-height: 2.4rem;
-   align-items: center;
-   display: flex;
-   transition: min-width 250ms;
-}
-
-.toolbar-searchbar {
-   min-height: 2.4rem;
-   width: 100%;
-   background-color: #202225;
-   border: none;
-   border-radius: 0.4rem;
-   outline: none;
-   color: rgb(200, 200, 200);
-   cursor: text;
-   text-indent: 0.5rem;
-   transition: 200ms;
-}
-
-.toolbar-searchbar-container:focus-within {
-   min-width: 24rem;
-}
-
-.searchbar-search-icon {
-   min-width: 1.7rem;
-   min-height: 1.7rem;
-   color: #72767d;
-   position: relative;
-   left: -2.5rem;
 }
 
 .follow-button {
@@ -135,4 +74,71 @@
    color: var(--main-element-colour);
    font-size: 1.4rem;
    font-weight: 600;
+   overflow: hidden;
+   text-overflow: ellipsis;
+}
+
+.toolbar-container {
+   display: flex;
+   white-space: nowrap;
+   min-width: fit-content;
+   align-items: center;
+   margin-right: 1.75rem;
+   gap: 1.75rem;
+}
+
+.toolbar-element {
+   min-width: 2.25rem;
+   min-height: 2.25rem;
+   color: var(--main-element-colour);
+   cursor: pointer;
+}
+
+.link-container {
+   min-width: 2.25rem;
+   min-height: 2.25rem;
+   display: flex;
+   align-items: center;
+}
+
+.members-bar-toggle {
+   color: #ffffff;
+}
+
+.toolbar-element:hover {
+   color: var(--main-element-hover-colour);
+}
+
+.toolbar-searchbar-container {
+   min-width: 14rem;
+   min-height: 2.4rem;
+   align-items: center;
+   display: flex;
+   transition: min-width 250ms;
+   position: relative;
+}
+
+.toolbar-searchbar {
+   min-height: 2.4rem;
+   width: 100%;
+   background-color: #202225;
+   border: none;
+   border-radius: 0.4rem;
+   outline: none;
+   color: rgb(200, 200, 200);
+   cursor: text;
+   text-indent: 0.5rem;
+   transition: 200ms;
+}
+
+.toolbar-searchbar-container:focus-within {
+   min-width: 24rem;
+}
+
+.searchbar-search-icon {
+   min-width: 1.7rem;
+   min-height: 1.7rem;
+   color: #72767d;
+   position: absolute;
+   right: 0.6rem;
 }

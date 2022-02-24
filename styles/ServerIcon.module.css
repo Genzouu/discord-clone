@@ -5,6 +5,10 @@
    position: relative;
 }
 
+.server-icon:hover > :last-child {
+   display: flex;
+}
+
 .icon-button {
    position: relative;
    display: flex;

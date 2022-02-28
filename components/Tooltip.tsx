@@ -1,12 +1,17 @@
-import { useLayoutEffect } from "react";
+import { createContext, useLayoutEffect } from "react";
 import { VscTriangleUp } from "react-icons/vsc";
 import styles from "../styles/Tooltip.module.css";
 
-interface TooltipProps {
+export interface TooltipProps {
    text: string;
    direction?: "right" | "left" | "top" | "bottom";
    caller?: Element;
 }
+
+export const TooltipContext = createContext({
+   setTooltipCTX: (data: TooltipProps) => {},
+});
+export const TooltipCTX = TooltipContext.Consumer;
 
 export default function Tooltip(props: TooltipProps) {
    useLayoutEffect(() => {

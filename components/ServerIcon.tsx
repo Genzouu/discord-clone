@@ -1,9 +1,8 @@
-import { useContext, useEffect, useState } from "react";
 import { IconType } from "react-icons";
 import { useSelector } from "react-redux";
-import { TooltipCTX } from "../pages";
 import { StateType } from "../state/reducers";
 import styles from "../styles/ServerIcon.module.css";
+import { TooltipCTX } from "./Tooltip";
 
 interface ServerIconProps {
    icon: string | IconType;
@@ -33,10 +32,10 @@ export default function ServerIcon(props: ServerIconProps) {
                      src={typeof props.icon === "string" ? props.icon : ""}
                      onClick={props.onClick}
                      onMouseEnter={(e) => {
-                        ctx.setTooltipInfoCTX({ caller: e.currentTarget, text: server.name, direction: "right" });
+                        ctx.setTooltipCTX({ caller: e.currentTarget, text: server.name, direction: "right" });
                      }}
                      onMouseLeave={() => {
-                        ctx.setTooltipInfoCTX({ text: "" });
+                        ctx.setTooltipCTX({ text: "" });
                      }}
                   />
                ) : (
@@ -48,14 +47,14 @@ export default function ServerIcon(props: ServerIconProps) {
                      }`}
                      onClick={props.onClick}
                      onMouseEnter={(e) => {
-                        ctx.setTooltipInfoCTX({
+                        ctx.setTooltipCTX({
                            caller: e.currentTarget,
                            text: props.tooltipText!,
                            direction: "right",
                         });
                      }}
                      onMouseLeave={() => {
-                        ctx.setTooltipInfoCTX({ text: "" });
+                        ctx.setTooltipCTX({ text: "" });
                      }}
                   >
                      <props.icon className={styles["icon"]} />

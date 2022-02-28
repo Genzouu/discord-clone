@@ -2,9 +2,9 @@ import { IoMdSettings } from "react-icons/io";
 import { MdMicOff } from "react-icons/md";
 import { RiHeadphoneFill } from "react-icons/ri";
 import { useSelector } from "react-redux";
-import { TooltipCTX } from "../pages";
 import { StateType } from "../state/reducers";
 import styles from "../styles/UserPanel.module.css";
+import { TooltipCTX } from "./Tooltip";
 
 export default function UserPanel() {
    const user = useSelector((state: StateType) => state.users[0].data);
@@ -33,14 +33,14 @@ export default function UserPanel() {
                   <div
                      className={styles["element-container"]}
                      onMouseEnter={(e) => {
-                        ctx.setTooltipInfoCTX({
+                        ctx.setTooltipCTX({
                            caller: e.currentTarget,
                            text: "Turn Off Mute", // state for turning off and turning on mute text
                            direction: "top",
                         });
                      }}
                      onMouseLeave={() => {
-                        ctx.setTooltipInfoCTX({ text: "" });
+                        ctx.setTooltipCTX({ text: "" });
                      }}
                   >
                      <MdMicOff className={styles["toolbar-element"]} />
@@ -48,14 +48,14 @@ export default function UserPanel() {
                   <div
                      className={styles["element-container"]}
                      onMouseEnter={(e) => {
-                        ctx.setTooltipInfoCTX({
+                        ctx.setTooltipCTX({
                            caller: e.currentTarget,
                            text: "Mute Speakers", // same thing here
                            direction: "top",
                         });
                      }}
                      onMouseLeave={() => {
-                        ctx.setTooltipInfoCTX({ text: "" });
+                        ctx.setTooltipCTX({ text: "" });
                      }}
                   >
                      <RiHeadphoneFill className={styles["toolbar-element"]} />
@@ -63,14 +63,14 @@ export default function UserPanel() {
                   <div
                      className={styles["element-container"]}
                      onMouseEnter={(e) => {
-                        ctx.setTooltipInfoCTX({
+                        ctx.setTooltipCTX({
                            caller: e.currentTarget,
                            text: "User Settings",
                            direction: "top",
                         });
                      }}
                      onMouseLeave={() => {
-                        ctx.setTooltipInfoCTX({ text: "" });
+                        ctx.setTooltipCTX({ text: "" });
                      }}
                   >
                      <IoMdSettings className={styles["toolbar-element"]} />

@@ -11,7 +11,7 @@ import { BiSearch } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
 import { StateType } from "../state/reducers";
 import { toggleMembersBar } from "../state/slices/membersBarToggleSlice";
-import { TooltipCTX } from "../pages";
+import { TooltipCTX } from "./Tooltip";
 
 export default function Header() {
    const dispatch = useDispatch();
@@ -45,61 +45,61 @@ export default function Header() {
                   <SiGooglemessages
                      className={styles["toolbar-element"]}
                      onMouseEnter={(e) => {
-                        ctx.setTooltipInfoCTX({
+                        ctx.setTooltipCTX({
                            caller: e.currentTarget,
                            text: "Threads",
                            direction: "bottom",
                         });
                      }}
                      onMouseLeave={() => {
-                        ctx.setTooltipInfoCTX({ text: "" });
+                        ctx.setTooltipCTX({ text: "" });
                      }}
                   />
                   <FaBell
                      className={styles["toolbar-element"]}
                      onMouseEnter={(e) => {
-                        ctx.setTooltipInfoCTX({
+                        ctx.setTooltipCTX({
                            caller: e.currentTarget,
                            text: "Notification Settings",
                            direction: "bottom",
                         });
                      }}
                      onMouseLeave={() => {
-                        ctx.setTooltipInfoCTX({ text: "" });
+                        ctx.setTooltipCTX({ text: "" });
                      }}
                   />
                   <BsPinAngleFill
                      className={styles["toolbar-element"]}
                      onMouseEnter={(e) => {
-                        ctx.setTooltipInfoCTX({
+                        ctx.setTooltipCTX({
                            caller: e.currentTarget,
                            text: "Pinned Messages",
                            direction: "bottom",
                         });
                      }}
                      onMouseLeave={() => {
-                        ctx.setTooltipInfoCTX({ text: "" });
+                        ctx.setTooltipCTX({ text: "" });
                      }}
                   />
                   <ImUsers
                      className={`${styles["toolbar-element"]} ${membersBarToggle ? styles["members-bar-toggle"] : ""}`}
                      onClick={(e) => {
                         dispatch(toggleMembersBar());
-                        ctx.setTooltipInfoCTX({
+                        ctx.setTooltipCTX({
                            caller: e.currentTarget,
                            text: membersBarToggle ? "Show Member List" : "Hide Member List", // The state hasn't updated yet so I have to do the reverse
                            direction: "bottom",
                         });
                      }}
                      onMouseEnter={(e) => {
-                        ctx.setTooltipInfoCTX({
+                        ctx.setTooltipCTX({
                            caller: e.currentTarget,
                            text: membersBarToggle ? "Hide Member List" : "Show Member List",
                            direction: "bottom",
                         });
                      }}
                      onMouseLeave={() => {
-                        ctx.setTooltipInfoCTX({ text: "" });
+                        ctx.setTooltipCTX({ text: "" });
                      }}
                   />
                   <div className={styles["toolbar-searchbar-container"]}>
@@ -109,14 +109,14 @@ export default function Header() {
                   <MdInbox
                      className={styles["toolbar-element"]}
                      onMouseEnter={(e) => {
-                        ctx.setTooltipInfoCTX({
+                        ctx.setTooltipCTX({
                            caller: e.currentTarget,
                            text: "Inbox",
                            direction: "bottom",
                         });
                      }}
                      onMouseLeave={() => {
-                        ctx.setTooltipInfoCTX({ text: "" });
+                        ctx.setTooltipCTX({ text: "" });
                      }}
                   />
                   <a
@@ -124,14 +124,14 @@ export default function Header() {
                      href="https://support.discord.com/hc"
                      target="_blank"
                      onMouseEnter={(e) => {
-                        ctx.setTooltipInfoCTX({
+                        ctx.setTooltipCTX({
                            caller: e.currentTarget,
                            text: "Help",
                            direction: "left",
                         });
                      }}
                      onMouseLeave={() => {
-                        ctx.setTooltipInfoCTX({ text: "" });
+                        ctx.setTooltipCTX({ text: "" });
                      }}
                   >
                      <IoMdHelpCircle className={styles["toolbar-element"]} />

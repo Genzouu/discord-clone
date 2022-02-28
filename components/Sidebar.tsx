@@ -6,12 +6,13 @@ import Category from "./Category";
 import { useDispatch, useSelector } from "react-redux";
 import { StateType } from "../state/reducers";
 import { addCategory, addChannel } from "../state/slices/serversSlice";
-import ContextMenu, { ContextMenuType } from "./ContextMenu";
+import ContextMenu, { ContextMenuProps, ContextMenuCTX, ContextMenuElement } from "./ContextMenu";
 import { ContextMenuColours } from "../types/ContextMenuColours";
 import Channel from "./Channel";
 import UserPanel from "./UserPanel";
 import Notice from "./Notice";
 import BoostNotice from "../public/boost-notice.svg";
+import { BsCartX } from "react-icons/bs";
 
 export default function Sidebar() {
    const dispatch = useDispatch();
@@ -20,7 +21,7 @@ export default function Sidebar() {
 
    const [showNotice, setShowNotice] = useState(true);
 
-   const sidebarContextMenu: ContextMenuType[] = [
+   const sidebarContextMenu: ContextMenuElement[] = [
       {
          displayText: "Hide channels with notifications turned off",
          hasLineAfter: true,
@@ -70,51 +71,47 @@ export default function Sidebar() {
       }
    }, []);
 
-   const openContextMenu = (e: MouseEvent<HTMLDivElement, globalThis.MouseEvent>) => {
-      e.preventDefault();
-      let contextMenu = document.getElementById("context-menu") as HTMLDivElement;
-      contextMenu.style.display = "flex";
-      contextMenu.style.top =
-         (contextMenu.offsetHeight + e.pageY + 12 > window.innerHeight
-            ? window.innerHeight - contextMenu.offsetHeight - 12
-            : e.pageY) + "px";
-      contextMenu.style.left = e.pageX.toString() + "px";
-   };
-
    const hideContextMenu = () => {
       (document.getElementById("context-menu") as HTMLDivElement).style.display = "none";
    };
 
    return (
-      <div className={styles.sidebar}>
-         <div className={styles["server-settings"]}>
-            {server.name}
-            <MdKeyboardArrowDown className={styles["settings-dropdown-icon"]} />
-         </div>
-         {showNotice ? (
-            <Notice
-               onClose={() => setShowNotice(false)}
-               image={BoostNotice.src}
-               text={["There's a server list!", "Gather some friends and boost the server"]}
-               buttonText={"Check the level and benefits"}
-            />
-         ) : null}
-         <div className={styles["channels-container"]} onContextMenu={(e) => openContextMenu(e)}>
-            {server.newChannels.length > 0 ? (
-               <div className={styles["new-channels-container"]}>
-                  {server.newChannels.map((channel, index) => (
-                     <Channel name={channel.name} categoryIndex={-1} index={index} key={index} />
-                  ))}
+      <ContextMenuCTX>
+         {(ctx) => (
+            <div className={styles.sidebar}>
+               <div className={styles["server-settings"]}>
+                  {server.name}
+                  <MdKeyboardArrowDown className={styles["settings-dropdown-icon"]} />
                </div>
-            ) : null}
-            <div id="categories-container">
-               {server.categories.map((category, index) => (
-                  <Category name={category.name} channels={category.channels} index={index} key={index} />
-               ))}
+               {showNotice ? (
+                  <Notice
+                     onClose={() => setShowNotice(false)}
+                     image={BoostNotice.src}
+                     text={["There's a server list!", "Gather some friends and boost the server"]}
+                     buttonText={"Check the level and benefits"}
+                  />
+               ) : null}
+               <div
+                  className={styles["channels-container"]}
+                  onContextMenu={(e) => ctx.setContextMenuCTX({ elements: sidebarContextMenu, event: e })}
+               >
+                  {server.newChannels.length > 0 ? (
+                     <div className={styles["new-channels-container"]}>
+                        {server.newChannels.map((channel, index) => (
+                           <Channel name={channel.name} categoryIndex={-1} index={index} key={index} />
+                        ))}
+                     </div>
+                  ) : null}
+                  <div id="categories-container">
+                     {server.categories.map((category, index) => (
+                        <Category name={category.name} channels={category.channels} index={index} key={index} />
+                     ))}
+                  </div>
+                  {/* <ContextMenu data={sidebarContextMenu.data} /> */}
+               </div>
+               <UserPanel />
             </div>
-            <ContextMenu data={sidebarContextMenu} />
-         </div>
-         <UserPanel />
-      </div>
+         )}
+      </ContextMenuCTX>
    );
 }

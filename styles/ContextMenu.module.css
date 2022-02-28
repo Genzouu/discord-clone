@@ -1,62 +1,75 @@
 .context-menu {
-  position: absolute;
-  background-color: #18191c;
-  padding: 1.6rem;
-  border-radius: 0.4rem;
-  display: none;
-  flex-direction: column;
-  z-index: 10;
-  box-shadow: 0 0 1.2rem rgba(0, 0, 0, 0.5);
+   position: absolute;
+   background-color: #18191c;
+   padding: 1.6rem;
+   border-radius: 0.4rem;
+   display: none;
+   flex-direction: column;
+   z-index: 10;
+   box-shadow: 0 0 1.2rem rgba(0, 0, 0, 0.5);
 }
 
 /* Context Menu Item */
 
 .item-container {
-  width: 100%;
+   width: 100%;
 }
 
 .item {
-  width: 100%;
-  color: var(--main-element-colour);
-  font-size: 1.6rem;
-  text-align: left;
-  border-radius: 0.4rem;
-  background-color: #18191c;
-  border: none;
-  padding: 0.6rem;
+   width: 100%;
+   color: var(--main-element-colour);
+   font-size: 1.6rem;
+   text-align: left;
+   border-radius: 0.4rem;
+   background-color: #18191c;
+   border: none;
+   padding: 0.6rem;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: space-between;
 }
 
 .item:hover {
-  color: white;
+   color: white;
 }
 
 .item:active {
-  background-color: #3c45a5;
+   background-color: #3c45a5;
 }
 
 /* Text Colours */
 
 .normal-text {
-  color: var(--main-element-colour);
+   color: var(--main-element-colour);
 }
 .invite-text {
-  color: #949cf7;
+   color: #949cf7;
 }
 .delete-text {
-  color: #ed4245;
+   color: #ed4245;
 }
 
 .normal-text:hover,
 .invite-text:hover {
-  background-color: var(--dark-discord-colour);
+   background-color: var(--dark-discord-colour);
 }
 .delete-text:hover {
-  background-color: #ed4245;
+   background-color: #ed4245;
 }
 
 /* Horizontal Line */
 
+.checkbox {
+   width: 1.8rem;
+   height: 1.8rem;
+   color: var(--main-element-colour);
+   cursor: pointer;
+   position: relative;
+   top: 0.2rem;
+}
+
 .line {
-  margin: 0.4rem 0;
-  color: #26272a;
+   margin: 0.4rem 0;
+   color: #26272a;
 }

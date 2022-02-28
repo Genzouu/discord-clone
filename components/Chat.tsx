@@ -11,7 +11,7 @@ import Post from "./Post";
 import { StateType } from "../state/reducers";
 import { PostType } from "../types/Data";
 import { addPost } from "../state/slices/serversSlice";
-import { TooltipCTX } from "../pages";
+import { TooltipCTX } from "./Tooltip";
 
 export default function Chat() {
    const dispatch = useDispatch();
@@ -117,14 +117,14 @@ export default function Chat() {
                         <HiGift
                            className={styles["right-icon"]}
                            onMouseEnter={(e) => {
-                              ctx.setTooltipInfoCTX({
+                              ctx.setTooltipCTX({
                                  caller: e.currentTarget,
                                  text: "Gift your friends nitro so that they can use cool chat benefits",
                                  direction: "top",
                               });
                            }}
                            onMouseLeave={() => {
-                              ctx.setTooltipInfoCTX({ text: "" });
+                              ctx.setTooltipCTX({ text: "" });
                            }}
                         />
                         <RiFileGifFill className={styles["right-icon"]} />

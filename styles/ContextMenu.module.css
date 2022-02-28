@@ -1,7 +1,7 @@
 .context-menu {
    position: absolute;
    background-color: #18191c;
-   padding: 1.6rem;
+   padding: 1rem;
    border-radius: 0.4rem;
    display: none;
    flex-direction: column;
@@ -28,6 +28,7 @@
    flex-direction: row;
    align-items: center;
    justify-content: space-between;
+   cursor: pointer;
 }
 
 .item:hover {
@@ -64,7 +65,6 @@
    width: 1.8rem;
    height: 1.8rem;
    color: var(--main-element-colour);
-   cursor: pointer;
    position: relative;
    top: 0.2rem;
 }

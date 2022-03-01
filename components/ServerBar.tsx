@@ -61,7 +61,7 @@ export default function ServerBar() {
             showPill={false}
             icon={IoMdCompass}
             colourVariant={ServerIconColourVariant.Green}
-            tooltipText="Search for a Public Server"
+            tooltipText="Explore Public Servers"
          />
          <hr className={`${styles.divider} ${styles.center}`} />
          <ServerIcon

@@ -6,13 +6,12 @@ import Category from "./Category";
 import { useDispatch, useSelector } from "react-redux";
 import { StateType } from "../state/reducers";
 import { addCategory, addChannel } from "../state/slices/serversSlice";
-import ContextMenu, { ContextMenuProps, ContextMenuCTX, ContextMenuElement } from "./ContextMenu";
+import { ContextMenuCTX, ContextMenuItemType } from "./ContextMenu";
 import { ContextMenuColours } from "../types/ContextMenuColours";
 import Channel from "./Channel";
 import UserPanel from "./UserPanel";
 import Notice from "./Notice";
 import BoostNotice from "../public/boost-notice.svg";
-import { BsCartX } from "react-icons/bs";
 
 export default function Sidebar() {
    const dispatch = useDispatch();
@@ -21,17 +20,18 @@ export default function Sidebar() {
 
    const [showNotice, setShowNotice] = useState(true);
 
-   const sidebarContextMenu: ContextMenuElement[] = [
+   const sidebarContextMenu: ContextMenuItemType[] = [
       {
-         displayText: "Hide channels with notifications turned off",
+         displayText: "Hide Muted Channels",
+         hasCheckbox: true,
          hasLineAfter: true,
       },
       {
-         displayText: "Create a category",
+         displayText: "Create a Category",
          onClick: () => dispatch(addCategory({ serverIndex: selection.server, name: "new category" })),
       },
       {
-         displayText: "Create a channel",
+         displayText: "Create a Channel",
          onClick: () =>
             dispatch(
                addChannel({
@@ -43,7 +43,7 @@ export default function Sidebar() {
             ),
       },
       {
-         displayText: "Invite friends",
+         displayText: "Invite Friends",
          textColourVariant: ContextMenuColours.Invite,
          onClick: () => hideContextMenu(),
       },

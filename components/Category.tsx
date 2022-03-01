@@ -1,14 +1,14 @@
 import { HiOutlinePlusSm } from "react-icons/hi";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
+import { categorySidebarContextMenu } from "../public/context-menus/categoryCTXMenu";
 import { StateType } from "../state/reducers";
 import { addChannel } from "../state/slices/serversSlice";
 
 import styles from "../styles/Category.module.css";
-import { ContextMenuColours } from "../types/ContextMenuColours";
 import { Channel } from "../types/Data";
 import ChannelComponent from "./Channel";
-import { ContextMenuCTX, ContextMenuElement } from "./ContextMenu";
+import { ContextMenuCTX } from "./ContextMenu";
 import { TooltipCTX } from "./Tooltip";
 
 interface CategoryProps {
@@ -20,50 +20,6 @@ interface CategoryProps {
 export default function Category(props: CategoryProps) {
    const dispatch = useDispatch();
    const selection = useSelector((state: StateType) => state.selection);
-
-   const categorySidebarContextMenu: ContextMenuElement[] = [
-      {
-         displayText: "Set as Read",
-         isSelectable: false,
-         hasLineAfter: true,
-         onHover: () => {},
-      },
-      {
-         displayText: "Turn Category Notifications Off",
-         subElements: [],
-         onHover: () => {},
-      },
-      {
-         displayText: "Notification Settings",
-         subElements: [],
-         hasLineAfter: true,
-         onHover: () => {},
-      },
-      {
-         displayText: "Collapse Category",
-         hasCheckbox: true,
-         onClick: () => {},
-      },
-      {
-         displayText: "Collapse All Categories",
-         onClick: () => {},
-      },
-      {
-         displayText: "Edit Category",
-         hasLineAfter: true,
-         onClick: () => {},
-      },
-      {
-         displayText: "Delete Category",
-         textColourVariant: ContextMenuColours.Delete,
-         hasLineAfter: true,
-         onClick: () => {},
-      },
-      {
-         displayText: "Copy ID",
-         onClick: () => {},
-      },
-   ];
 
    const addNewChannel = () => {
       dispatch(

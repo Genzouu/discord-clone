@@ -1,23 +1,22 @@
 import { createContext, MouseEvent, useEffect } from "react";
-import { RiCheckboxBlankLine } from "react-icons/ri";
-import { IoIosCheckbox } from "react-icons/io";
 
 import styles from "../styles/ContextMenu.module.css";
 import { ContextMenuColours } from "../types/ContextMenuColours";
+import ContextMenuItem from "./ContextMenuItem";
 
-export interface ContextMenuElement {
+export interface ContextMenuItemType {
    displayText: string;
    textColourVariant?: ContextMenuColours;
    isSelectable?: boolean;
    hasCheckbox?: boolean;
    hasLineAfter?: boolean;
-   subElements?: ContextMenuElement[];
+   subItems?: ContextMenuItemType[];
    onClick?: () => void;
    onHover?: () => void;
 }
 
 export interface ContextMenuProps {
-   elements: ContextMenuElement[];
+   elements: ContextMenuItemType[];
    event?: MouseEvent<HTMLElement, globalThis.MouseEvent>;
 }
 
@@ -44,24 +43,15 @@ export default function ContextMenu(props: ContextMenuProps) {
    return (
       <div id="context-menu" className={styles["context-menu"]}>
          {props.elements.map((item, index) => (
-            <div className={styles["item-container"]} key={index}>
-               <button
-                  className={`${styles["item"]} ${
-                     styles[
-                        item.textColourVariant === undefined
-                           ? "normal-text"
-                           : item.textColourVariant === ContextMenuColours.Invite
-                           ? "invite-text"
-                           : "delete-text"
-                     ]
-                  }`}
-                  onClick={item.onClick}
-               >
-                  {item.displayText}
-                  {item.hasCheckbox ? <RiCheckboxBlankLine className={styles["checkbox"]} /> : null}
-               </button>
-               {item.hasLineAfter ? <hr className={styles["line"]} /> : null}
-            </div>
+            <ContextMenuItem
+               displayText={item.displayText}
+               textColourVariant={item.textColourVariant}
+               hasCheckbox={item.hasCheckbox}
+               subItems={item.subItems}
+               onClick={item.onClick}
+               onHover={item.onHover}
+               key={index}
+            />
          ))}
       </div>
    );

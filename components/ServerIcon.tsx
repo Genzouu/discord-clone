@@ -1,9 +1,9 @@
 import { IconType } from "react-icons";
 import { useSelector } from "react-redux";
+import { ownerTextChannelsContextMenu } from "../public/context-menus/serverIconCTXMenu";
 import { StateType } from "../state/reducers";
 import styles from "../styles/ServerIcon.module.css";
-import { ContextMenuColours } from "../types/ContextMenuColours";
-import { ContextMenuCTX, ContextMenuElement } from "./ContextMenu";
+import { ContextMenuCTX } from "./ContextMenu";
 import { TooltipCTX } from "./Tooltip";
 
 interface ServerIconProps {
@@ -27,60 +27,6 @@ export default function ServerIcon(props: ServerIconProps) {
    // owner of server, no text channels menu
    // owner of server, text channels menu
    // member of server menu
-
-   const ownerTextChannelsContextMenu: ContextMenuElement[] = [
-      {
-         displayText: "Set as Read",
-         hasLineAfter: true,
-      },
-      {
-         displayText: "Invite Friends",
-         textColourVariant: ContextMenuColours.Invite,
-         hasLineAfter: true,
-      },
-      {
-         displayText: "Turn Server Notifications Off",
-         subElements: [],
-      },
-      {
-         displayText: "Notification Settings",
-         subElements: [],
-      },
-      {
-         displayText: "Hide Muted Channels",
-         hasCheckbox: true,
-         hasLineAfter: true,
-      },
-      {
-         displayText: "Server Settings",
-         subElements: [],
-      },
-      {
-         displayText: "Privacy Settings",
-      },
-      {
-         displayText: "Edit Server Profile",
-         hasLineAfter: true,
-      },
-      {
-         displayText: "Create Channel",
-      },
-      {
-         displayText: "Create Category",
-      },
-      {
-         displayText: "Create Event",
-         hasLineAfter: true,
-      },
-      {
-         displayText: "Leave Server",
-         textColourVariant: ContextMenuColours.Delete,
-         hasLineAfter: true,
-      },
-      {
-         displayText: "Copy ID",
-      },
-   ];
 
    return (
       <ContextMenuCTX>

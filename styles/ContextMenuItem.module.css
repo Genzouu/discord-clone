@@ -1,0 +1,62 @@
+.item-container {
+   width: 100%;
+}
+
+.item {
+   width: 100%;
+   color: var(--main-element-colour);
+   font-size: 1.6rem;
+   text-align: left;
+   border-radius: 0.4rem;
+   background-color: #18191c;
+   border: none;
+   padding: 0.6rem;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: space-between;
+   cursor: pointer;
+}
+
+.item:hover {
+   color: white;
+}
+
+.item:active {
+   background-color: #3c45a5;
+}
+
+/* Text Colours */
+
+.normal-text {
+   color: var(--main-element-colour);
+}
+.invite-text {
+   color: #949cf7;
+}
+.delete-text {
+   color: #ed4245;
+}
+
+.normal-text:hover,
+.invite-text:hover {
+   background-color: var(--dark-discord-colour);
+}
+.delete-text:hover {
+   background-color: #ed4245;
+}
+
+/* Horizontal Line */
+
+.icon {
+   width: 1.8rem;
+   height: 1.8rem;
+   color: var(--main-element-colour);
+   position: relative;
+   margin-left: 1rem;
+}
+
+.line {
+   margin: 0.4rem 0;
+   color: #26272a;
+}

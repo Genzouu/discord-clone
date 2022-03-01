@@ -1,0 +1,13 @@
+.sub-context-menu-container {
+   position: fixed;
+   display: flex;
+   flex-direction: column;
+   border-radius: 0.4rem;
+   z-index: 100;
+}
+
+.sub-context-menu {
+   background-color: #18191c;
+   padding: 1rem;
+   margin-left: 1.6rem;
+}

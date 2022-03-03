@@ -93,7 +93,7 @@ export default function Sidebar() {
                ) : null}
                <div
                   className={styles["channels-container"]}
-                  onContextMenu={(e) => ctx.setContextMenuCTX({ elements: sidebarContextMenu, event: e })}
+                  onContextMenu={(e) => ctx.setContextMenuCTX({ items: sidebarContextMenu, event: e })}
                >
                   {server.newChannels.length > 0 ? (
                      <div className={styles["new-channels-container"]}>

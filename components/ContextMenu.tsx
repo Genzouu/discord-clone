@@ -1,22 +1,23 @@
 import { createContext, MouseEvent, useEffect } from "react";
+import { ContextMenuTemplateItemType } from "../public/context-menus/contextMenuTemplates";
 
 import styles from "../styles/ContextMenu.module.css";
 import { ContextMenuColours } from "../types/ContextMenuColours";
 import ContextMenuItem from "./ContextMenuItem";
 
-export interface ContextMenuItemType {
-   displayText: string;
-   textColourVariant?: ContextMenuColours;
-   isSelectable?: boolean;
-   hasCheckbox?: boolean;
-   hasLineAfter?: boolean;
-   subItems?: ContextMenuItemType[];
+export interface ContextMenuItemType extends ContextMenuTemplateItemType {
+   // displayText: string;
+   // textColourVariant?: ContextMenuColours;
+   // isSelectable?: boolean;
+   // hasCheckbox?: boolean;
+   // hasLineAfter?: boolean;
+   // subItems?: ContextMenuItemType[];
    onClick?: () => void;
    onHover?: () => void;
 }
 
 export interface ContextMenuProps {
-   elements: ContextMenuItemType[];
+   items: ContextMenuItemType[];
    event?: MouseEvent<HTMLElement, globalThis.MouseEvent>;
 }
 
@@ -42,16 +43,19 @@ export default function ContextMenu(props: ContextMenuProps) {
 
    return (
       <div id="context-menu" className={styles["context-menu"]}>
-         {props.elements.map((item, index) => (
-            <ContextMenuItem
-               displayText={item.displayText}
-               textColourVariant={item.textColourVariant}
-               hasCheckbox={item.hasCheckbox}
-               subItems={item.subItems}
-               onClick={item.onClick}
-               onHover={item.onHover}
-               key={index}
-            />
+         {props.items.map((item, index) => (
+            <>
+               <ContextMenuItem
+                  displayText={item.displayText}
+                  textColourVariant={item.textColourVariant}
+                  hasCheckbox={item.hasCheckbox}
+                  subItems={item.subItems}
+                  onClick={item.onClick}
+                  onHover={item.onHover}
+                  key={index}
+               />
+               {item.hasLineAfter ? <hr className={styles["line"]} key={props.items.length + index} /> : null}
+            </>
          ))}
       </div>
    );

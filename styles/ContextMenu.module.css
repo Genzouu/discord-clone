@@ -1,4 +1,5 @@
 .context-menu {
+   min-width: 18rem;
    position: absolute;
    background-color: #18191c;
    padding: 1rem;
@@ -9,5 +10,7 @@
    box-shadow: 0 0 1.2rem rgba(0, 0, 0, 0.5);
 }
 
-/* Context Menu Item */
-
+.line {
+   margin: 0.4rem 0;
+   color: #26272a;
+}

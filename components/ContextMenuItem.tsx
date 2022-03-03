@@ -39,7 +39,6 @@ export default function ContextMenuItem(props: ContextMenuItemType) {
                {props.hasCheckbox ? <RiCheckboxBlankLine className={styles["icon"]} /> : null}
                {props.subItems ? <IoIosArrowForward className={styles["icon"]} /> : null}
             </button>
-            {props.hasLineAfter ? <hr className={styles["line"]} /> : null}
          </div>
          {subMenuInfo.isActive ? <SubContextMenu items={props.subItems!} parent={subMenuInfo.parent} /> : null}
       </div>

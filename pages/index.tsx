@@ -22,7 +22,7 @@ const Home: NextPage = () => {
       text: "",
    });
    const [contextMenu, setContextMenu] = useState<ContextMenuProps>({
-      elements: [],
+      items: [],
    });
 
    useEffect(() => {
@@ -39,7 +39,7 @@ const Home: NextPage = () => {
       <div className={styles.wrapper}>
          <div className={styles["layer-container"]}>
             <Tooltip text={tooltip.text} direction={tooltip.direction} caller={tooltip.caller} />
-            <ContextMenu elements={contextMenu.elements} event={contextMenu.event} />
+            <ContextMenu items={contextMenu.items} event={contextMenu.event} />
          </div>
          <TooltipContext.Provider
             value={{
@@ -58,8 +58,8 @@ const Home: NextPage = () => {
                <ServerBar />
                <SideBar />
                {server.newChannels.length > 0 ||
-               server.categories.every((c) => {
-                  return c.channels.length > 0;
+               !server.categories.every((c) => {
+                  return c.channels.length === 0;
                }) ? (
                   <div className={styles["content-container"]}>
                      <Header />

@@ -50,7 +50,7 @@ export default function ServerIcon(props: ServerIconProps) {
                               tooltipCTX.setTooltipCTX({ text: "" });
                            }}
                            onContextMenu={(e) =>
-                              contextMenuCTX.setContextMenuCTX({ elements: ownerTextChannelsContextMenu, event: e })
+                              contextMenuCTX.setContextMenuCTX({ items: ownerTextChannelsContextMenu, event: e })
                            }
                         />
                      ) : (
@@ -72,7 +72,7 @@ export default function ServerIcon(props: ServerIconProps) {
                               tooltipCTX.setTooltipCTX({ text: "" });
                            }}
                            onContextMenu={(e) =>
-                              contextMenuCTX.setContextMenuCTX({ elements: ownerTextChannelsContextMenu, event: e })
+                              contextMenuCTX.setContextMenuCTX({ items: ownerTextChannelsContextMenu, event: e })
                            }
                         >
                            <props.icon className={styles["icon"]} />

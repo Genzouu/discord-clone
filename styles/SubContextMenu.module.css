@@ -1,13 +1,21 @@
 .sub-context-menu-container {
+   min-width: 18rem;
    position: fixed;
-   display: flex;
+   display: none;
    flex-direction: column;
-   border-radius: 0.4rem;
    z-index: 100;
 }
 
 .sub-context-menu {
+   width: 100%;
    background-color: #18191c;
    padding: 1rem;
-   margin-left: 1.6rem;
+   margin-left: 1.4rem;
+   border-radius: 0.4rem;
+   box-shadow: 0 0 1.2rem rgba(0, 0, 0, 0.5);
+}
+
+.line {
+   margin: 0.4rem 0;
+   color: #26272a;
 }

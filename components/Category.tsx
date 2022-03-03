@@ -1,14 +1,14 @@
 import { HiOutlinePlusSm } from "react-icons/hi";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
-import { categorySidebarContextMenu } from "../public/context-menus/categoryCTXMenu";
 import { StateType } from "../state/reducers";
-import { addChannel } from "../state/slices/serversSlice";
+import { addChannel, removeCategory } from "../state/slices/serversSlice";
 
 import styles from "../styles/Category.module.css";
+import { ContextMenuColours } from "../types/ContextMenuColours";
 import { Channel } from "../types/Data";
 import ChannelComponent from "./Channel";
-import { ContextMenuCTX } from "./ContextMenu";
+import { ContextMenuCTX, ContextMenuItemType } from "./ContextMenu";
 import { TooltipCTX } from "./Tooltip";
 
 interface CategoryProps {
@@ -19,12 +19,90 @@ interface CategoryProps {
 
 export default function Category(props: CategoryProps) {
    const dispatch = useDispatch();
-   const selection = useSelector((state: StateType) => state.selection);
+   const serverIndex = useSelector((state: StateType) => state.selection.server);
+   const server = useSelector((state: StateType) => state.servers[serverIndex]);
+
+   const contextMenu: ContextMenuItemType[] = [
+      {
+         displayText: "Set as Read",
+         isSelectable: false,
+         hasLineAfter: true,
+         onClick: () => {},
+      },
+      {
+         displayText: "Mute Category",
+         subItems: [
+            {
+               displayText: "15 Minutes",
+            },
+            {
+               displayText: "1 Hour",
+            },
+            {
+               displayText: "3 Hours",
+            },
+            {
+               displayText: "8 Hours",
+            },
+            {
+               displayText: "24 Hours",
+            },
+            {
+               displayText: "Until Unmuted",
+            },
+         ],
+         onHover: () => {},
+      },
+      {
+         displayText: "Notification Settings",
+         subItems: [
+            {
+               displayText: "Use Default Server Settings",
+            },
+            {
+               displayText: "Every Message",
+            },
+            {
+               displayText: "@mentions Only",
+            },
+            {
+               displayText: "Mute",
+            },
+         ],
+         hasLineAfter: true,
+         onHover: () => {},
+      },
+      {
+         displayText: "Collapse Category",
+         hasCheckbox: true,
+         onClick: () => {},
+      },
+      {
+         displayText: "Collapse All Categories",
+         onClick: () => {},
+      },
+      {
+         displayText: "Edit Category",
+         hasLineAfter: true,
+         onClick: () => {},
+      },
+      {
+         displayText: "Delete Category",
+         textColourVariant: ContextMenuColours.Delete,
+         hasLineAfter: true,
+         // display "are you sure?" model
+         onClick: () => dispatch(removeCategory({ serverIndex: serverIndex, removeIndex: server.categoryIndex })),
+      },
+      {
+         displayText: "Copy ID",
+         onClick: () => {},
+      },
+   ];
 
    const addNewChannel = () => {
       dispatch(
          addChannel({
-            serverIndex: selection.server,
+            serverIndex: serverIndex,
             categoryIndex: props.index,
             name: "new channel " + props.channels.length,
             description: "new description",
@@ -45,7 +123,7 @@ export default function Category(props: CategoryProps) {
                      onContextMenu={(e) => {
                         e.preventDefault();
                         e.stopPropagation();
-                        contextMenuCTX.setContextMenuCTX({ elements: categorySidebarContextMenu, event: e });
+                        contextMenuCTX.setContextMenuCTX({ items: contextMenu, event: e });
                      }}
                   >
                      <HiOutlinePlusSm
